@@ -4,23 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portafolio - Juleny Belisario</title>
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-  
-  <!-- Swiper CSS para carrusel -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
-
   <style>
     body {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
       background: #f0f2f5;
-      color: #333;
+      color: #fff;
     }
-
-    /* HEADER */
     header {
       background: linear-gradient(135deg, #6a0dad, #00ffff);
       padding: 60px 20px;
@@ -29,20 +22,33 @@
       align-items: center;
       justify-content: center;
       gap: 40px;
-      color: #fff;
       opacity: 0;
       transform: translateY(-50px);
       animation: fadeInDown 1s forwards;
     }
     @keyframes fadeInDown {
-      to { opacity: 1; transform: translateY(0); }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    header img { width: 200px; border-radius: 50%; border: 4px solid #fff; }
-    .sobre-mi { max-width: 500px; }
-    .sobre-mi h1 { margin: 0 0 10px; font-size: 2.8em; font-weight: 700; font-family: 'Poppins', sans-serif; }
-    .sobre-mi p { line-height: 1.6em; margin-bottom: 20px; font-size: 1.05em; }
-
-    /* Botón CV */
+    header img {
+      width: 200px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+    }
+    .sobre-mi {
+      max-width: 500px;
+    }
+    .sobre-mi h1 {
+      margin: 0 0 10px;
+      font-size: 2.5em;
+    }
+    .sobre-mi p {
+      line-height: 1.5em;
+      margin-bottom: 20px;
+      color: #fff;
+    }
     .cv-button {
       display: inline-block;
       padding: 12px 25px;
@@ -59,8 +65,6 @@
       transform: translateY(-5px);
       box-shadow: 0 8px 15px rgba(0,0,0,0.2);
     }
-
-    /* Línea separadora aguamarina */
     hr {
       border: 2px solid #00ffff;
       margin: 40px 0;
@@ -68,50 +72,56 @@
       margin-left: auto;
       margin-right: auto;
     }
-
-    /* Secciones */
     section {
       padding: 20px;
       max-width: 1000px;
       margin: auto;
+      color: #333;
     }
     section h2 {
       text-align: center;
       margin-bottom: 40px;
       font-size: 2em;
       color: #6a0dad;
-      font-family: 'Poppins', sans-serif;
     }
-
-    /* Swiper principal de proyectos */
-    .swiper { width: 100%; padding-bottom: 40px; }
+    .swiper {
+      width: 100%;
+      padding-bottom: 40px;
+    }
     .swiper-slide {
       background: #fff;
       border-radius: 15px;
+      text-align: center;
       padding: 20px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       color: #333;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
     }
-    .proyecto-link { color: #6a0dad; font-weight: 600; text-decoration: none; }
-    .proyecto-link:hover { text-decoration: underline; }
-
-    /* Swiper interno para imágenes del proyecto */
-    .swiper-inner {
-      width: 100%;
-      padding-top: 10px;
-      padding-bottom: 20px;
+    .swiper-slide-active {
+      opacity: 1;
+      transform: translateY(0);
     }
-    .swiper-inner img {
+    .swiper-slide img {
       width: 100%;
-      height: 180px;
+      height: 200px;
       object-fit: cover;
       border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .proyecto-link {
+      color: #6a0dad;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .proyecto-link:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
   <header>
     <img src="images/tu-foto.jpg" alt="Tu foto">
     <div class="sobre-mi">
@@ -123,80 +133,45 @@
 
   <hr>
 
-  <!-- SECCIÓN PROYECTOS -->
   <section>
     <h2>Proyectos</h2>
-    
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
-
-        <!-- Proyecto 1 -->
         <div class="swiper-slide">
           <h3>App de Facturación</h3>
-          <div class="swiper swiper-inner">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide"><img src="images/facturacion1.jpg" alt="Facturación 1"></div>
-              <div class="swiper-slide"><img src="images/facturacion2.jpg" alt="Facturación 2"></div>
-              <div class="swiper-slide"><img src="images/facturacion3.jpg" alt="Facturación 3"></div>
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
+          <img src="images/facturacion1.jpg" alt="App Facturación">
+          <img src="images/facturacion2.jpg" alt="App Facturación">
           <p>App Android Studio con BBDD en SQL Server y conexión a API en .NET Core.</p>
         </div>
-
-        <!-- Proyecto 2 -->
         <div class="swiper-slide">
           <h3>Ropisport (WordPress)</h3>
-          <div class="swiper swiper-inner">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide"><img src="images/ropisport1.jpg" alt="Ropisport 1"></div>
-              <div class="swiper-slide"><img src="images/ropisport2.jpg" alt="Ropisport 2"></div>
-              <div class="swiper-slide"><img src="images/ropisport3.jpg" alt="Ropisport 3"></div>
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
+          <img src="images/ropisport1.jpg" alt="ROPISPORT">
           <p>Página web en WordPress alojada en servidor IONOS. <a href="https://ropisport.com" class="proyecto-link" target="_blank">Visitar página</a></p>
         </div>
-
-        <!-- Proyecto 3 -->
         <div class="swiper-slide">
           <h3>Lista de la Compra (React Native)</h3>
-          <div class="swiper swiper-inner">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide"><img src="images/lista1.jpg" alt="Lista 1"></div>
-              <div class="swiper-slide"><img src="images/lista2.jpg" alt="Lista 2"></div>
-              <div class="swiper-slide"><img src="images/lista3.jpg" alt="Lista 3"></div>
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
+          <img src="images/lista1.jpg" alt="Lista de la Compra">
           <p>App desarrollada con React Native y Expo.</p>
         </div>
-
       </div>
       <div class="swiper-pagination"></div>
     </div>
   </section>
 
-  <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script>
-    // Swiper principal
-    const mainSwiper = new Swiper(".mySwiper", {
+    const swiper = new Swiper(".mySwiper", {
       slidesPerView: 1,
       spaceBetween: 30,
       loop: true,
-      pagination: { el: ".swiper-pagination", clickable: true },
-      breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } },
-    });
-
-    // Swiper interno por proyecto
-    document.querySelectorAll(".swiper-inner").forEach(swiperEl => {
-      new Swiper(swiperEl, {
-        slidesPerView: 1,
-        spaceBetween: 10,
-        loop: true,
-        pagination: { el: swiperEl.querySelector(".swiper-pagination"), clickable: true },
-      });
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+      },
     });
   </script>
 
