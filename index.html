@@ -3,49 +3,176 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portafolio - Tu Nombre</title>
+  <title>Portafolio - Juleny Belisario</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Swiper CSS para carrusel -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
-    header { background: #222; color: #fff; padding: 20px; text-align: center; }
-    section { padding: 20px; }
-    .proyecto { background: #fff; padding: 15px; margin-bottom: 10px; border-radius: 8px; }
-    footer { text-align: center; padding: 15px; background: #222; color: #fff; margin-top: 20px; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f2f5;
+      color: #fff;
+    }
+    header {
+      background: linear-gradient(135deg, #6a0dad, #00ffff);
+      padding: 60px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+    }
+    header img {
+      width: 200px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+    }
+    .sobre-mi {
+      max-width: 500px;
+    }
+    .sobre-mi h1 {
+      margin: 0 0 10px;
+      font-size: 2.5em;
+    }
+    .sobre-mi p {
+      line-height: 1.5em;
+      margin-bottom: 20px;
+    }
+    .cv-button {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #fff;
+      color: #6a0dad;
+      font-weight: 600;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .cv-button:hover {
+      background: #00ffff;
+      color: #fff;
+    }
+    hr {
+      border: 2px solid #fff;
+      margin: 40px 0;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    section {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+      color: #333;
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2em;
+      color: #6a0dad;
+    }
+    .swiper {
+      width: 100%;
+      padding-bottom: 40px;
+    }
+    .swiper-slide {
+      background: #fff;
+      border-radius: 15px;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      color: #333;
+    }
+    .swiper-slide img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .proyecto-link {
+      color: #6a0dad;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .proyecto-link:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
+
+  <!-- HEADER CON FOTO, SOBRE MI Y CV -->
   <header>
-    <h1>Juleny Belisario</h1>
-    <p>Desarrollador de Aplicaciones Multiplataforma (DAM)</p>
+    <img src="images/tu-foto.jpg" alt="Tu foto">
+    <div class="sobre-mi">
+      <h1>Juleny Belisario</h1>
+      <p>Buenos dotes comunicativos durante mi experiencia como auxiliar administrativo. Destaco por mi capacidad de trabajo en equipo, organización y adaptabilidad a los cambios. Me gusta aprender cosas nuevas y soy muy creativo en el diseño de interfaces.</p>
+      <a href="TuCV.pdf" class="cv-button" target="_blank">Descarga mi CV</a>
+    </div>
   </header>
 
-  <section>
-    <h2>Sobre mí</h2>
-    <p>Soy estudiante de DAM con interés en el desarrollo de aplicaciones móviles, web y bases de datos.</p>
-  </section>
+  <hr>
 
+  <!-- SECCIÓN PROYECTOS -->
   <section>
     <h2>Proyectos</h2>
-    <div class="proyecto">
-      <h3>App de Notas en Java</h3>
-      <p>Aplicación Android para tomar notas rápidas y guardarlas en SQLite.</p>
-      <a href="https://github.com/usuario/repositorio">Ver en GitHub</a>
-    </div>
-    <div class="proyecto">
-      <h3>Gestor de Biblioteca</h3>
-      <p>Programa de escritorio en JavaFX con conexión a MySQL.</p>
-      <a href="https://github.com/usuario/repositorio">Ver en GitHub</a>
+    
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        
+        <!-- Proyecto 1 -->
+        <div class="swiper-slide">
+          <h3>App de Facturación</h3>
+          <img src="images/facturacion1.jpg" alt="App Facturación">
+          <img src="images/facturacion2.jpg" alt="App Facturación">
+          <p>App Android Studio con BBDD en SQL Server y conexión a API en .NET Core.</p>
+        </div>
+        
+        <!-- Proyecto 2 -->
+        <div class="swiper-slide">
+          <h3>ROPISPORT (WordPress)</h3>
+          <img src="images/ropisport1.jpg" alt="ROPISPORT">
+          <img src="images/ropisport2.jpg" alt="ROPISPORT">
+          <p>Página web en WordPress alojada en servidor IONOS. <a href="https://ropisport.com" class="proyecto-link" target="_blank">Visitar página</a></p>
+        </div>
+        
+        <!-- Proyecto 3 -->
+        <div class="swiper-slide">
+          <h3>Lista de la Compra (React Native)</h3>
+          <img src="images/lista1.jpg" alt="Lista de la Compra">
+          <img src="images/lista2.jpg" alt="Lista de la Compra">
+          <p>App desarrollada con React Native y Expo.</p>
+        </div>
+
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
   </section>
 
-  <section>
-    <h2>Contacto</h2>
-    <p>Email:julebelisario001@gmail.com</p>
-    <p>GitHub: <a href="https://github.com/tunombre">github.com/tunombre</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/tunombre">linkedin.com/in/tunombre</a></p>
-  </section>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+      },
+    });
+  </script>
 
-  <footer>
-    <p>© 2025 Juleny Belisario - Portafolio</p>
-  </footer>
 </body>
 </html>
