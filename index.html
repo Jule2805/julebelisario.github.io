@@ -19,6 +19,8 @@
       background: #f0f2f5;
       color: #fff;
     }
+
+    /* HEADER CON ANIMACION */
     header {
       background: linear-gradient(135deg, #6a0dad, #00ffff);
       padding: 60px 20px;
@@ -27,23 +29,40 @@
       align-items: center;
       justify-content: center;
       gap: 40px;
+      opacity: 0;
+      transform: translateY(-50px);
+      animation: fadeInDown 1s forwards;
     }
+
+    @keyframes fadeInDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     header img {
       width: 200px;
       border-radius: 50%;
       border: 4px solid #fff;
     }
+
     .sobre-mi {
       max-width: 500px;
     }
+
     .sobre-mi h1 {
       margin: 0 0 10px;
       font-size: 2.5em;
     }
+
     .sobre-mi p {
       line-height: 1.5em;
       margin-bottom: 20px;
+      color: #fff;
     }
+
+    /* BOTON CV CON ANIMACION */
     .cv-button {
       display: inline-block;
       padding: 12px 25px;
@@ -52,12 +71,18 @@
       font-weight: 600;
       border-radius: 30px;
       text-decoration: none;
-      transition: 0.3s;
+      transition: 0.4s ease;
+      transform: translateY(0);
     }
+
     .cv-button:hover {
       background: #00ffff;
       color: #fff;
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
     }
+
+    /* LINEA SEPARADORA */
     hr {
       border: 2px solid #fff;
       margin: 40px 0;
@@ -65,22 +90,28 @@
       margin-left: auto;
       margin-right: auto;
     }
+
+    /* SECCIONES */
     section {
       padding: 20px;
       max-width: 1000px;
       margin: auto;
       color: #333;
     }
+
     section h2 {
       text-align: center;
       margin-bottom: 40px;
       font-size: 2em;
       color: #6a0dad;
     }
+
+    /* CARRUSEL SWIPER */
     .swiper {
       width: 100%;
       padding-bottom: 40px;
     }
+
     .swiper-slide {
       background: #fff;
       border-radius: 15px;
@@ -88,7 +119,17 @@
       padding: 20px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       color: #333;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
     }
+
+    /* Animacion al aparecer slide activo */
+    .swiper-slide-active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .swiper-slide img {
       width: 100%;
       height: 200px;
@@ -96,11 +137,13 @@
       border-radius: 10px;
       margin-bottom: 10px;
     }
+
     .proyecto-link {
       color: #6a0dad;
       font-weight: 600;
       text-decoration: none;
     }
+
     .proyecto-link:hover {
       text-decoration: underline;
     }
@@ -137,7 +180,7 @@
         
         <!-- Proyecto 2 -->
         <div class="swiper-slide">
-          <h3>ROPISPORT (WordPress)</h3>
+          <h3>Ropisport (WordPress)</h3>
           <img src="images/ropisport1.jpg" alt="ROPISPORT">
           <img src="images/ropisport2.jpg" alt="ROPISPORT">
           <p>Página web en WordPress alojada en servidor IONOS. <a href="https://ropisport.com" class="proyecto-link" target="_blank">Visitar página</a></p>
