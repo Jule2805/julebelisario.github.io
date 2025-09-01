@@ -4,160 +4,232 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portafolio - Juleny Belisario</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
+    /* ===== RESET ===== */
+    * {
       margin: 0;
       padding: 0;
-      background: #f0f2f5;
-      color: #fff;
+      box-sizing: border-box;
     }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0f0f1a;
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* ===== HEADER ===== */
     header {
-      background: linear-gradient(135deg, #6a0dad, #00ffff);
+      background: linear-gradient(135deg, #6a0dad, #00e5ff);
       padding: 60px 20px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
       gap: 40px;
-      opacity: 0;
-      transform: translateY(-50px);
-      animation: fadeInDown 1s forwards;
+      text-align: left;
     }
-    @keyframes fadeInDown {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+
     header img {
       width: 200px;
       border-radius: 50%;
       border: 4px solid #fff;
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
     }
+
     .sobre-mi {
       max-width: 500px;
+      animation: fadeInUp 1.2s ease forwards;
     }
+
     .sobre-mi h1 {
-      margin: 0 0 10px;
-      font-size: 2.5em;
+      font-size: 2.8em;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, #fff, #00e5ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
+
     .sobre-mi p {
-      line-height: 1.5em;
-      margin-bottom: 20px;
-      color: #fff;
+      margin-bottom: 25px;
+      color: #f0f0f0;
     }
+
     .cv-button {
       display: inline-block;
-      padding: 12px 25px;
+      padding: 14px 28px;
       background: #fff;
       color: #6a0dad;
       font-weight: 600;
       border-radius: 30px;
-      text-decoration: none;
-      transition: 0.4s ease;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
+
     .cv-button:hover {
-      background: #00ffff;
+      background: #00e5ff;
       color: #fff;
-      transform: translateY(-5px);
-      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 20px rgba(0,229,255,0.4);
+      transform: translateY(-3px);
     }
-    hr {
-      border: 2px solid #00ffff;
-      margin: 40px 0;
+
+    /* Animación */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== SEPARADOR ===== */
+    .separador {
       width: 80%;
-      margin-left: auto;
-      margin-right: auto;
+      height: 3px;
+      background: linear-gradient(90deg, #6a0dad, #00e5ff);
+      margin: 50px auto;
+      border-radius: 5px;
+      animation: expand 2s ease forwards;
     }
+
+    @keyframes expand {
+      from { width: 0; }
+      to { width: 80%; }
+    }
+
+    /* ===== PROYECTOS ===== */
     section {
       padding: 20px;
-      max-width: 1000px;
+      max-width: 1200px;
       margin: auto;
-      color: #333;
     }
+
     section h2 {
       text-align: center;
       margin-bottom: 40px;
-      font-size: 2em;
-      color: #6a0dad;
+      font-size: 2.2em;
+      background: linear-gradient(90deg, #6a0dad, #00e5ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
+
     .swiper {
       width: 100%;
-      padding-bottom: 40px;
+      padding-bottom: 50px;
     }
+
     .swiper-slide {
-      background: #fff;
+      background: #1a1a2e;
       border-radius: 15px;
-      text-align: center;
       padding: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      color: #333;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(0, 229, 255, 0.1);
+      transition: transform 0.3s ease;
     }
-    .swiper-slide-active {
-      opacity: 1;
-      transform: translateY(0);
+
+    .swiper-slide:hover {
+      transform: translateY(-5px);
     }
+
     .swiper-slide img {
       width: 100%;
       height: 200px;
       object-fit: cover;
       border-radius: 10px;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
+
     .proyecto-link {
-      color: #6a0dad;
+      color: #00e5ff;
       font-weight: 600;
-      text-decoration: none;
     }
+
     .proyecto-link:hover {
       text-decoration: underline;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0a0a14;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
 
+  <!-- ===== HEADER ===== -->
   <header>
-    <img src="images/tu-foto.jpg" alt="Tu foto">
+    <img src="images/tu-foto.jpg" alt="Foto Juleny">
     <div class="sobre-mi">
       <h1>Juleny Belisario</h1>
-      <p>Buenos dotes comunicativos durante mi experiencia como auxiliar administrativo. Destaco por mi capacidad de trabajo en equipo, organización y adaptabilidad a los cambios. Me gusta aprender cosas nuevas y soy muy creativo en el diseño de interfaces.</p>
-      <a href="Currículum Juleny Belisario_Oficial.pdf" class="cv-button" target="_blank">Descarga mi CV</a>
+      <p>
+        Buenos dotes comunicativos durante mi experiencia como auxiliar administrativo. 
+        Destaco por mi capacidad de trabajo en equipo, organización y adaptabilidad a los cambios. 
+        Me gusta aprender cosas nuevas y soy muy creativo en el diseño de interfaces.
+      </p>
+      <a href="Currículum Juleny Belisario_Oficial.pdf" class="cv-button" target="_blank">📄 Descargar mi CV</a>
     </div>
   </header>
 
-  <hr>
+  <!-- SEPARADOR -->
+  <div class="separador"></div>
 
+  <!-- ===== PROYECTOS ===== -->
   <section>
-    <h2>Proyectos</h2>
+    <h2>🚀 Mis Proyectos</h2>
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
+
+        <!-- Proyecto 1 -->
         <div class="swiper-slide">
           <h3>App de Facturación</h3>
           <img src="images/facturacion1.jpg" alt="App Facturación">
-          <img src="images/facturacion2.jpg" alt="App Facturación">
           <p>App Android Studio con BBDD en SQL Server y conexión a API en .NET Core.</p>
         </div>
+
+        <!-- Proyecto 2 -->
         <div class="swiper-slide">
           <h3>Ropisport (WordPress)</h3>
           <img src="images/ropisport1.jpg" alt="ROPISPORT">
-          <p>Página web en WordPress alojada en servidor IONOS. <a href="https://ropisport.com" class="proyecto-link" target="_blank">Visitar página</a></p>
+          <p>
+            Página web en WordPress alojada en servidor IONOS.  
+            <a href="https://ropisport.com" target="_blank" class="proyecto-link">Ver sitio</a>
+          </p>
         </div>
+
+        <!-- Proyecto 3 -->
         <div class="swiper-slide">
-          <h3>Lista de la Compra (React Native)</h3>
+          <h3>Lista de la Compra</h3>
           <img src="images/lista1.jpg" alt="Lista de la Compra">
           <p>App desarrollada con React Native y Expo.</p>
         </div>
+
       </div>
       <div class="swiper-pagination"></div>
     </div>
   </section>
 
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    © 2025 Juleny Belisario · Diseñado con 💜 y aguamarina
+  </footer>
+
+  <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script>
     const swiper = new Swiper(".mySwiper", {
