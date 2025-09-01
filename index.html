@@ -7,12 +7,14 @@
   
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  
+
+  <!-- Font Awesome para iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
 
   <style>
-    /* ===== RESET ===== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
@@ -49,9 +51,7 @@
     .sobre-mi h1 {
       font-size: 2.8em;
       margin-bottom: 15px;
-      background: linear-gradient(90deg, #fff, #00e5ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #b966f7; /* morado bonito */
     }
 
     .sobre-mi p { margin-bottom: 25px; color: #f0f0f0; }
@@ -122,15 +122,17 @@
 
     .swiper {
       width: 100%;
-      height: 300px;
+      height: 400px; /* más grande para ver bien */
       margin-bottom: 20px;
     }
 
-    .swiper-slide img {
+    .swiper-slide img,
+    .swiper-slide video {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain; /* asegura que se vea completa la imagen */
       border-radius: 12px;
+      background: #000;
     }
 
     .proyecto p {
@@ -204,6 +206,21 @@
       font-size: 0.9em;
       color: #aaa;
     }
+
+    .social-icons {
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 1.5em;
+      transition: 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #00e5ff;
+    }
   </style>
 </head>
 <body>
@@ -236,9 +253,10 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide"><img src="images/facturacion1.jpg" alt=""></div>
           <div class="swiper-slide"><img src="images/facturacion2.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="images/facturacion3.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="images/facturacion4.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="images/facturacion5.jpg" alt=""></div>
+           <div class="swiper-slide"><img src="images/facturacion3.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="images/facturacion4.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="images/facturacion5.jpg" alt=""></div>
+          <div class="swiper-slide"><video controls src="videos/facturacion-demo.mp4"></video></div>
         </div>
         <div class="swiper-pagination"></div>
       </div>
@@ -253,7 +271,7 @@
           <div class="swiper-slide"><img src="images/ropisport1.jpg" alt=""></div>
           <div class="swiper-slide"><img src="images/ropisport2.jpg" alt=""></div>
           <div class="swiper-slide"><img src="images/ropisport3.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="images/ropisport4jpg" alt=""></div>
+          <div class="swiper-slide"><img src="images/ropisport4.jpg" alt=""></div>
           <div class="swiper-slide"><img src="images/ropisport5.jpg" alt=""></div>
           <div class="swiper-slide"><img src="images/ropisport6.jpg" alt=""></div>
           <div class="swiper-slide"><img src="images/ropisport7.jpg" alt=""></div>
@@ -272,7 +290,7 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide"><img src="images/lista1.jpg" alt=""></div>
           <div class="swiper-slide"><img src="images/lista2.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="images/lista3.jpg" alt=""></div>
+          <div class="swiper-slide"><video controls src="videos/lista-demo.mp4"></video></div>
         </div>
         <div class="swiper-pagination"></div>
       </div>
@@ -283,7 +301,7 @@
   <!-- ===== CONTACTO ===== -->
   <section id="contacto">
     <h2>📬 Contáctame</h2>
-    <form action="https://formspree.io/f/tu-endpoint" method="POST">
+    <form action="https://formspree.io/f/movqgbja" method="POST">
       <input type="text" name="nombre" placeholder="Tu nombre" required>
       <input type="email" name="email" placeholder="Tu correo" required>
       <textarea name="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
@@ -293,7 +311,12 @@
 
   <!-- ===== FOOTER ===== -->
   <footer>
-    © 2025 Juleny Belisario · 
+    © 2025 Juleny Belisario·
+    <div class="social-icons">
+      <a href="www.linkedin.com/in/jule-belisario-439b4336a" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/julenyybelisario" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://wa.me/34611516149" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
   </footer>
 
   <!-- Swiper JS -->
