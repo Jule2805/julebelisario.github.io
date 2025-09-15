@@ -8,11 +8,14 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome para iconos -->
+  <!-- Font Awesome (iconos) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+
+  <!-- AOS (animaciones scroll) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"/>
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,32 +32,43 @@
 
     /* ===== HEADER ===== */
     header {
-      background: linear-gradient(135deg, #6a0dad, #00e5ff);
-      padding: 60px 20px;
+      background: #0f0f1a;
+      padding: 80px 20px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: 40px;
+      gap: 60px;
       text-align: left;
     }
 
     header img {
-      width: 200px;
+      width: 220px;
       border-radius: 50%;
-      border: 4px solid #fff;
-      box-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
+      border: 5px solid #fff;
+      box-shadow: 0 0 25px rgba(0, 229, 255, 0.6);
     }
 
-    .sobre-mi { max-width: 500px; animation: fadeInUp 1.2s ease forwards; }
+    .sobre-mi { max-width: 550px; }
 
     .sobre-mi h1 {
-      font-size: 2.8em;
+      font-size: 3.2em;
       margin-bottom: 15px;
-      color: #b966f7; /* morado bonito */
+      font-weight: 700;
+      color: #9b5de5;
+      animation: fadeInText 2s ease-in-out;
     }
 
-    .sobre-mi p { margin-bottom: 25px; color: #f0f0f0; }
+    @keyframes fadeInText {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .sobre-mi p {
+      margin-bottom: 25px;
+      color: #f0f0f0;
+      font-size: 1.1em;
+    }
 
     .cv-button {
       display: inline-block;
@@ -74,9 +88,56 @@
       transform: translateY(-3px);
     }
 
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* ===== HABILIDADES ===== */
+    #habilidades {
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    #habilidades h2 {
+      margin-bottom: 30px;
+      font-size: 2.4em;
+      color: #9b5de5;
+    }
+
+    .habilidades {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .habilidades div {
+      text-align: center;
+      color: #f0f0f0;
+      transition: transform 0.3s ease, filter 0.3s ease;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .habilidades i {
+      font-size: 2.2em;
+      color: #9b5de5;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #9b5de5, #00e5ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transition: transform 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .habilidades div:hover i {
+      transform: scale(1.3);
+      text-shadow: 0 0 15px #9b5de5, 0 0 25px #00e5ff;
+    }
+
+    .habilidades div:hover {
+      transform: translateY(-10px);
+      filter: brightness(1.2);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
     }
 
     /* ===== SEPARADOR ===== */
@@ -84,16 +145,13 @@
       width: 80%;
       height: 3px;
       background: linear-gradient(90deg, #6a0dad, #00e5ff);
-      margin: 50px auto;
+      margin: 60px auto;
       border-radius: 5px;
-      animation: expand 2s ease forwards;
     }
 
-    @keyframes expand { from { width: 0; } to { width: 80%; } }
-
-    /* ===== PROYECTOS ===== */
+    /* ===== SECCIONES ===== */
     section {
-      padding: 20px;
+      padding: 40px 20px;
       max-width: 1200px;
       margin: auto;
     }
@@ -101,28 +159,29 @@
     section h2 {
       text-align: center;
       margin-bottom: 40px;
-      font-size: 2.2em;
-      background: linear-gradient(90deg, #6a0dad, #00e5ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: 2.4em;
+      color: #9b5de5;
     }
 
+    /* ===== PROYECTOS ===== */
     .proyecto {
-      margin-bottom: 60px;
-      padding: 20px;
+      margin-bottom: 70px;
+      padding: 30px;
       background: #1a1a2e;
-      border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(0, 229, 255, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 6px 25px rgba(0, 229, 255, 0.08);
     }
 
     .proyecto h3 {
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       text-align: center;
+      color: #fff;
+      font-size: 1.8em;
     }
 
     .swiper {
       width: 100%;
-      height: 400px; /* más grande para ver bien */
+      height: 420px;
       margin-bottom: 20px;
     }
 
@@ -130,15 +189,20 @@
     .swiper-slide video {
       width: 100%;
       height: 100%;
-      object-fit: contain; /* asegura que se vea completa la imagen */
+      object-fit: cover;
       border-radius: 12px;
       background: #000;
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+      color: #00e5ff;
     }
 
     .proyecto p {
       text-align: center;
       margin-top: 10px;
       color: #ddd;
+      font-size: 1em;
     }
 
     .proyecto a {
@@ -151,19 +215,16 @@
     /* ===== CONTACTO ===== */
     #contacto {
       text-align: center;
-      padding: 40px 20px;
     }
 
     #contacto h2 {
       margin-bottom: 20px;
-      font-size: 2em;
-      background: linear-gradient(90deg, #6a0dad, #00e5ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: 2.4em;
+      color: #9b5de5;
     }
 
     form {
-      max-width: 500px;
+      max-width: 550px;
       margin: auto;
       display: flex;
       flex-direction: column;
@@ -171,8 +232,8 @@
     }
 
     input, textarea {
-      padding: 12px;
-      border-radius: 8px;
+      padding: 14px;
+      border-radius: 10px;
       border: none;
       outline: none;
       font-size: 1em;
@@ -186,7 +247,7 @@
       border-radius: 30px;
       background: linear-gradient(135deg, #6a0dad, #00e5ff);
       color: #fff;
-      font-size: 1em;
+      font-size: 1.1em;
       font-weight: bold;
       cursor: pointer;
       transition: 0.3s ease;
@@ -197,14 +258,22 @@
       transform: translateY(-2px);
     }
 
+    .mensaje-exito {
+      margin-top: 15px;
+      color: #00e5ff;
+      font-weight: bold;
+      display: none;
+    }
+
     /* ===== FOOTER ===== */
     footer {
       background: #0a0a14;
       text-align: center;
-      padding: 20px;
+      padding: 25px;
       margin-top: 40px;
-      font-size: 0.9em;
+      font-size: 0.95em;
       color: #aaa;
+      border-top: 2px solid #6a0dad;
     }
 
     .social-icons {
@@ -213,20 +282,21 @@
 
     .social-icons a {
       color: #fff;
-      margin: 0 10px;
-      font-size: 1.5em;
+      margin: 0 12px;
+      font-size: 1.8em;
       transition: 0.3s ease;
     }
 
-    .social-icons a:hover {
-      color: #00e5ff;
+    .social-icons a:hover { 
+      color: #00e5ff; 
+      text-shadow: 0 0 15px #00e5ff;
     }
   </style>
 </head>
 <body>
 
   <!-- ===== HEADER ===== -->
-  <header>
+  <header data-aos="fade-up">
     <img src="images/tu-foto.jpg" alt="Foto Juleny">
     <div class="sobre-mi">
       <h1>Juleny Belisario</h1>
@@ -235,47 +305,58 @@
         Destaco por mi capacidad de trabajo en equipo, organización y adaptabilidad a los cambios. 
         Me gusta aprender cosas nuevas y soy muy creativo en el diseño de interfaces.
       </p>
-      <a href="Currículum Juleny Belisario_Oficial.pdf" class="cv-button" target="_blank">📄 Descargar mi CV</a>
+      <a href="Curriculum.pdf" class="cv-button" target="_blank">📄 Descargar mi CV</a>
     </div>
   </header>
 
+  <!-- ===== HABILIDADES ===== -->
+  <section id="habilidades" data-aos="fade-up">
+    <h2>💻 Habilidades</h2>
+    <div class="habilidades">
+      <div><i class="fab fa-java"></i><p>Java</p></div>
+      <div><i class="fab fa-html5"></i><p>HTML</p></div>
+      <div><i class="fab fa-css3-alt"></i><p>CSS</p></div>
+      <div><i class="fab fa-android"></i><p>Android Studio</p></div>
+      <div><i class="fab fa-figma"></i><p>Figma</p></div>
+      <div><i class="fab fa-angular"></i><p>Angular</p></div>
+      <div><i class="fab fa-react"></i><p>React</p></div>
+    </div>
+  </section>
+
   <!-- SEPARADOR -->
-  <div class="separador"></div>
+  <div class="separador" data-aos="zoom-in"></div>
 
   <!-- ===== PROYECTOS ===== -->
   <section>
-    <h2>🚀 Mis Proyectos</h2>
+    <h2 data-aos="fade-right">🚀 Mis Proyectos</h2>
 
     <!-- Proyecto 1 -->
-    <div class="proyecto">
+    <div class="proyecto" data-aos="fade-up">
       <h3>App de Facturación</h3>
       <div class="swiper facturacionSwiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide"><img src="images/facturacion1.jpg" alt=""></div>
           <div class="swiper-slide"><img src="images/facturacion2.jpg" alt=""></div>
-           <div class="swiper-slide"><img src="images/facturacion3.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="images/facturacion4.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="images/facturacion5.jpg" alt=""></div>
           <div class="swiper-slide"><video controls src="videos/facturacion-demo.mp4"></video></div>
         </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
       </div>
       <p>App Android Studio con BBDD en SQL Server y conexión a API en .NET Core.</p>
     </div>
 
     <!-- Proyecto 2 -->
-    <div class="proyecto">
+    <div class="proyecto" data-aos="fade-up">
       <h3>Ropisport (WordPress)</h3>
       <div class="swiper ropisportSwiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide"><img src="images/ropisport1.jpg" alt=""></div>
           <div class="swiper-slide"><img src="images/ropisport2.jpg" alt=""></div>
           <div class="swiper-slide"><img src="images/ropisport3.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="images/ropisport4.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="images/ropisport5.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="images/ropisport6.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="images/ropisport7.jpg" alt=""></div>
         </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
       </div>
       <p>Página web en WordPress alojada en servidor IONOS.  
@@ -284,7 +365,7 @@
     </div>
 
     <!-- Proyecto 3 -->
-    <div class="proyecto">
+    <div class="proyecto" data-aos="fade-up">
       <h3>Lista de la Compra</h3>
       <div class="swiper listaSwiper">
         <div class="swiper-wrapper">
@@ -292,6 +373,8 @@
           <div class="swiper-slide"><img src="images/lista2.jpg" alt=""></div>
           <div class="swiper-slide"><video controls src="videos/lista-demo.mp4"></video></div>
         </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
       </div>
       <p>App desarrollada con React Native y Expo.</p>
@@ -299,29 +382,36 @@
   </section>
 
   <!-- ===== CONTACTO ===== -->
-  <section id="contacto">
+  <section id="contacto" data-aos="fade-up">
     <h2>📬 Contáctame</h2>
-    <form action="https://formspree.io/f/mandvgjw" method="POST">
+    <form id="contact-form" action="https://formspree.io/f/mandvgjw" method="POST">
       <input type="text" name="nombre" placeholder="Tu nombre" required>
       <input type="email" name="email" placeholder="Tu correo" required>
       <textarea name="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
       <button type="submit">Enviar Mensaje</button>
+      <div class="mensaje-exito">✅ ¡Gracias por tu mensaje! Me pondré en contacto pronto.</div>
     </form>
   </section>
 
   <!-- ===== FOOTER ===== -->
   <footer>
-    © 2025 Juleny Belisario·
+    · © 2025 Juleny Belisario · 
     <div class="social-icons">
-      <a href="www.linkedin.com/in/jule-belisario-439b4336a" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/julenyybelisario" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="http://www.linkedin.com/in/jule-belisario-439b4336a" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/Jule2805" target="_blank"><i class="fab fa-github"></i></a>
       <a href="https://wa.me/34611516149" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
   </footer>
 
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
   <script>
+    AOS.init({ duration: 1000, once: true });
+
     const sliders = [
       ".facturacionSwiper",
       ".ropisportSwiper",
@@ -337,9 +427,28 @@
           el: selector + " .swiper-pagination",
           clickable: true,
         },
+        navigation: {
+          nextEl: selector + " .swiper-button-next",
+          prevEl: selector + " .swiper-button-prev",
+        }
       });
     });
-  </script>
 
+    // Formulario con mensaje de éxito
+    const form = document.getElementById("contact-form");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        form.reset();
+        form.querySelector(".mensaje-exito").style.display = "block";
+      }
+    });
+  </script>
 </body>
 </html>
