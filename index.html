@@ -5,19 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portafolio - Juleny Belisario</title>
   
-  <!-- Favicon -->
-  <link rel="icon" href="images/favicon.png" type="image/png">
-
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome (iconos) -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
 
-  <!-- AOS (animaciones scroll) -->
+  <!-- AOS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"/>
 
   <style>
@@ -31,8 +28,6 @@
       overflow-x: hidden;
     }
 
-    a { text-decoration: none; }
-
     /* ===== HEADER ===== */
     header {
       background: #0f0f1a;
@@ -42,7 +37,6 @@
       align-items: center;
       justify-content: center;
       gap: 60px;
-      text-align: left;
     }
 
     header img {
@@ -67,45 +61,64 @@
       100% { opacity: 1; transform: translateY(0); }
     }
 
-    .sobre-mi p {
-      margin-bottom: 25px;
-      color: #f0f0f0;
-      font-size: 1.1em;
-    }
-
     .cv-button {
       display: inline-block;
+      margin-top: 20px;
       padding: 14px 28px;
       background: #fff;
       color: #6a0dad;
       font-weight: 600;
       border-radius: 30px;
       transition: 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
 
     .cv-button:hover {
       background: #00e5ff;
       color: #fff;
-      box-shadow: 0 8px 20px rgba(0,229,255,0.4);
       transform: translateY(-3px);
     }
 
+    /* ===== HABILIDADES ===== */
+    #habilidades { margin-top: 60px; text-align: center; }
+
+    #habilidades h2 { margin-bottom: 30px; font-size: 2.4em; color: #9b5de5; }
+
+    .habilidades {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .habilidades div { text-align: center; }
+
+    .habilidades i {
+      font-size: 2.2em;
+      background: linear-gradient(135deg, #9b5de5, #00e5ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ===== SEPARADOR ===== */
+    .separador {
+      width: 80%;
+      height: 3px;
+      background: linear-gradient(90deg, #6a0dad, #00e5ff);
+      margin: 60px auto;
+      border-radius: 5px;
+    }
+
     /* ===== PROYECTOS ===== */
+    section h2 { text-align: center; margin-bottom: 40px; font-size: 2.4em; color: #9b5de5; }
+
     .proyecto {
       margin-bottom: 70px;
       padding: 30px;
       background: #1a1a2e;
       border-radius: 20px;
-      box-shadow: 0 6px 25px rgba(0, 229, 255, 0.08);
     }
 
-    .proyecto h3 {
-      margin-bottom: 20px;
-      text-align: center;
-      color: #fff;
-      font-size: 1.8em;
-    }
+    .proyecto h3 { text-align: center; margin-bottom: 20px; color: #fff; }
 
     .swiper {
       width: 100%;
@@ -113,24 +126,48 @@
       margin-bottom: 20px;
     }
 
-    .swiper-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 12px;
-    }
-
+    .swiper-slide img,
     .swiper-slide video {
       width: 100%;
       height: 100%;
-      object-fit: contain; /* para que no se corte */
+      object-fit: contain; /* 🔹 no recorta nada */
       border-radius: 12px;
       background: #000;
     }
 
-    .swiper-button-next, .swiper-button-prev {
-      color: #00e5ff;
+    .swiper-button-next, .swiper-button-prev { color: #00e5ff; }
+
+    /* ===== CONTACTO ===== */
+    #contacto { text-align: center; }
+
+    form {
+      max-width: 550px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
+
+    input, textarea {
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      font-size: 1em;
+    }
+
+    button {
+      padding: 14px;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #6a0dad, #00e5ff);
+      color: #fff;
+      font-size: 1.1em;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .mensaje-exito { margin-top: 15px; color: #00e5ff; font-weight: bold; display: none; }
 
     /* ===== FOOTER ===== */
     footer {
@@ -138,67 +175,91 @@
       text-align: center;
       padding: 25px;
       margin-top: 40px;
-      font-size: 0.95em;
       color: #aaa;
       border-top: 2px solid #6a0dad;
     }
+
+    .social-icons a { color: #fff; margin: 0 12px; font-size: 1.8em; }
+    .social-icons a:hover { color: #00e5ff; }
   </style>
 </head>
 <body>
 
+  <!-- ===== HEADER ===== -->
+  <header data-aos="fade-up">
+    <img src="images/tu-foto.jpg" alt="Foto Juleny">
+    <div class="sobre-mi">
+      <h1>Juleny Belisario</h1>
+      <p>
+        Buenos dotes comunicativos durante mi experiencia como auxiliar administrativo. 
+        Destaco por mi capacidad de trabajo en equipo, organización y adaptabilidad a los cambios. 
+        Me gusta aprender cosas nuevas y soy muy creativo en el diseño de interfaces.
+      </p>
+      <a href="Curriculum.pdf" class="cv-button" target="_blank">📄 Descargar mi CV</a>
+    </div>
+  </header>
+
+  <!-- ===== HABILIDADES ===== -->
+  <section id="habilidades" data-aos="fade-up">
+    <h2>💻 Habilidades</h2>
+    <div class="habilidades">
+      <div><i class="fab fa-java"></i><p>Java</p></div>
+      <div><i class="fab fa-html5"></i><p>HTML</p></div>
+      <div><i class="fab fa-css3-alt"></i><p>CSS</p></div>
+      <div><i class="fab fa-android"></i><p>Android Studio</p></div>
+      <div><i class="fab fa-figma"></i><p>Figma</p></div>
+      <div><i class="fab fa-angular"></i><p>Angular</p></div>
+      <div><i class="fab fa-react"></i><p>React</p></div>
+    </div>
+  </section>
+
+  <div class="separador"></div>
+
   <!-- ===== PROYECTOS ===== -->
   <section>
-    <h2 data-aos="fade-right">🚀 Mis Proyectos</h2>
+    <h2>🚀 Mis Proyectos</h2>
 
     <!-- Proyecto 1 -->
-    <div class="proyecto" data-aos="fade-up">
+    <div class="proyecto">
       <h3>App de Facturación</h3>
       <div class="swiper facturacionSwiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="images/facturacion1.jpg" alt=""></div>
-          <div class="swiper-slide">
-            <video controls autoplay muted loop>
-              <source src="videos/facturacion-demo.mp4" type="video/mp4">
-            </video>
-          </div>
+          <div class="swiper-slide"><img src="images/facturacion1.jpg"></div>
+          <div class="swiper-slide"><video controls src="images/facturacion-demo.mp4"></video></div>
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
       </div>
-      <p>App Android Studio con BBDD en SQL Server y conexión a API en .NET Core.</p>
+      <p>App Android Studio con BBDD en SQL Server y API en .NET Core.</p>
     </div>
 
     <!-- Proyecto 2 -->
-    <div class="proyecto" data-aos="fade-up">
+    <div class="proyecto">
       <h3>Ropisport (WordPress)</h3>
       <div class="swiper ropisportSwiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="images/ropisport1.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="images/ropisport2.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="images/ropisport3.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="images/ropisport1.jpg"></div>
+          <div class="swiper-slide"><img src="images/ropisport2.jpg"></div>
+          <div class="swiper-slide"><img src="images/ropisport3.jpg"></div>
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
       </div>
-      <p>Página web en WordPress alojada en servidor IONOS.  
+      <p>Página en WordPress en servidor IONOS.  
         <a href="https://ropisport.com" target="_blank">Ver sitio</a>
       </p>
     </div>
 
     <!-- Proyecto 3 -->
-    <div class="proyecto" data-aos="fade-up">
+    <div class="proyecto">
       <h3>Lista de la Compra</h3>
       <div class="swiper listaSwiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="images/lista1.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="images/lista2.jpg" alt=""></div>
-          <div class="swiper-slide">
-            <video controls autoplay muted loop>
-              <source src="videos/lista-demo.mp4" type="video/mp4">
-            </video>
-          </div>
+          <div class="swiper-slide"><img src="images/lista1.jpg"></div>
+          <div class="swiper-slide"><img src="images/lista2.jpg"></div>
+          <div class="swiper-slide"><video controls src="videos/lista-demo.mp4"></video></div>
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
@@ -208,44 +269,76 @@
     </div>
   </section>
 
-  <!-- Swiper JS -->
+  <!-- ===== CONTACTO ===== -->
+  <section id="contacto">
+    <h2>📬 Contáctame</h2>
+    <form id="contact-form" action="https://formspree.io/f/mandvgjw" method="POST">
+      <input type="text" name="nombre" placeholder="Tu nombre" required>
+      <input type="email" name="email" placeholder="Tu correo" required>
+      <textarea name="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
+      <button type="submit">Enviar Mensaje</button>
+      <div class="mensaje-exito">✅ ¡Gracias por tu mensaje!</div>
+    </form>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    © 2025 Juleny Belisario
+    <div class="social-icons">
+      <a href="http://www.linkedin.com/in/jule-belisario-439b4336a" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/Jule2805" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://wa.me/34611516149" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </footer>
+
+  <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
   <script>
-    // Proyecto 1 (sin autoplay en imágenes)
-    new Swiper(".facturacionSwiper", {
-      slidesPerView: 1,
-      spaceBetween: 20,
-      loop: true,
-      pagination: {
-        el: ".facturacionSwiper .swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".facturacionSwiper .swiper-button-next",
-        prevEl: ".facturacionSwiper .swiper-button-prev",
-      }
-    });
+    AOS.init({ duration: 1000, once: true });
 
-    // Proyecto 2 y 3 (con autoplay en imágenes)
-    [".ropisportSwiper", ".listaSwiper"].forEach(selector => {
+    // Carruseles con autoplay
+    const sliders = [".ropisportSwiper", ".listaSwiper"];
+    sliders.forEach(selector => {
       new Swiper(selector, {
         slidesPerView: 1,
         spaceBetween: 20,
         loop: true,
-        autoplay: {
-          delay: 3000,
-          disableOnInteraction: false,
-        },
-        pagination: {
-          el: selector + " .swiper-pagination",
-          clickable: true,
-        },
-        navigation: {
-          nextEl: selector + " .swiper-button-next",
-          prevEl: selector + " .swiper-button-prev",
-        }
+        autoplay: { delay: 3000, disableOnInteraction: false },
+        pagination: { el: selector + " .swiper-pagination", clickable: true },
+        navigation: { nextEl: selector + " .swiper-button-next", prevEl: selector + " .swiper-button-prev" }
       });
+    });
+
+    // Carrusel con video (sin autoplay)
+    const facturacionSwiper = new Swiper(".facturacionSwiper", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      pagination: { el: ".facturacionSwiper .swiper-pagination", clickable: true },
+      navigation: { nextEl: ".facturacionSwiper .swiper-button-next", prevEl: ".facturacionSwiper .swiper-button-prev" }
+    });
+
+    facturacionSwiper.on("slideChange", () => {
+      const videos = document.querySelectorAll(".facturacionSwiper video");
+      videos.forEach(v => { v.pause(); v.currentTime = 0; });
+      const active = document.querySelector(".facturacionSwiper .swiper-slide-active video");
+      if (active) active.play();
+    });
+
+    window.addEventListener("load", () => {
+      const active = document.querySelector(".facturacionSwiper .swiper-slide-active video");
+      if (active) active.play();
+    });
+
+    // Formulario
+    const form = document.getElementById("contact-form");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const res = await fetch(form.action, { method: form.method, body: data, headers: { 'Accept': 'application/json' } });
+      if (res.ok) { form.reset(); form.querySelector(".mensaje-exito").style.display = "block"; }
     });
   </script>
 </body>
