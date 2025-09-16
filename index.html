@@ -294,7 +294,7 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide"><img src="images/lista1.jpg"></div>
           <div class="swiper-slide"><img src="images/lista2.jpg"></div>
-          <div class="swiper-slide"><video controls src="videos/lista-demo.mp4"></video></div>
+          <div class="swiper-slide"><video controls src="images/lista-demo.mp4"></video></div>
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
@@ -332,40 +332,49 @@
 
   <script>
     AOS.init({ duration: 1000, once: true });
+// Carruseles con autoplay (solo ropisport)
+const sliders = [".ropisportSwiper"];
+sliders.forEach(selector => {
+  new Swiper(selector, {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: { delay: 3000, disableOnInteraction: false },
+    pagination: { el: selector + " .swiper-pagination", clickable: true },
+    navigation: { nextEl: selector + " .swiper-button-next", prevEl: selector + " .swiper-button-prev" }
+  });
+});
 
-    // Carruseles con autoplay
-    const sliders = [".ropisportSwiper", ".listaSwiper"];
-    sliders.forEach(selector => {
-      new Swiper(selector, {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        loop: true,
-        autoplay: { delay: 3000, disableOnInteraction: false },
-        pagination: { el: selector + " .swiper-pagination", clickable: true },
-        navigation: { nextEl: selector + " .swiper-button-next", prevEl: selector + " .swiper-button-prev" }
-      });
-    });
+// Carrusel de la lista de la compra (SIN autoplay)
+const listaSwiper = new Swiper(".listaSwiper", {
+  slidesPerView: 1,
+  spaceBetween: 20,
+  loop: true,
+  pagination: { el: ".listaSwiper .swiper-pagination", clickable: true },
+  navigation: { nextEl: ".listaSwiper .swiper-button-next", prevEl: ".listaSwiper .swiper-button-prev" }
+});
 
-    // Carrusel con video (sin autoplay)
-    const facturacionSwiper = new Swiper(".facturacionSwiper", {
-      slidesPerView: 1,
-      spaceBetween: 20,
-      loop: true,
-      pagination: { el: ".facturacionSwiper .swiper-pagination", clickable: true },
-      navigation: { nextEl: ".facturacionSwiper .swiper-button-next", prevEl: ".facturacionSwiper .swiper-button-prev" }
-    });
+// Carrusel con video (facturación, sin autoplay)
+const facturacionSwiper = new Swiper(".facturacionSwiper", {
+  slidesPerView: 1,
+  spaceBetween: 20,
+  loop: true,
+  pagination: { el: ".facturacionSwiper .swiper-pagination", clickable: true },
+  navigation: { nextEl: ".facturacionSwiper .swiper-button-next", prevEl: ".facturacionSwiper .swiper-button-prev" }
+});
 
-    facturacionSwiper.on("slideChange", () => {
-      const videos = document.querySelectorAll(".facturacionSwiper video");
-      videos.forEach(v => { v.pause(); v.currentTime = 0; });
-      const active = document.querySelector(".facturacionSwiper .swiper-slide-active video");
-      if (active) active.play();
-    });
+// Control de videos en facturación
+facturacionSwiper.on("slideChange", () => {
+  const videos = document.querySelectorAll(".facturacionSwiper video");
+  videos.forEach(v => { v.pause(); v.currentTime = 0; });
+  const active = document.querySelector(".facturacionSwiper .swiper-slide-active video");
+  if (active) active.play();
+});
 
-    window.addEventListener("load", () => {
-      const active = document.querySelector(".facturacionSwiper .swiper-slide-active video");
-      if (active) active.play();
-    });
+window.addEventListener("load", () => {
+  const active = document.querySelector(".facturacionSwiper .swiper-slide-active video");
+  if (active) active.play();
+});
 
     // Formulario
     const form = document.getElementById("contact-form");
