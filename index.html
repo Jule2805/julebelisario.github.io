@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portafolio - Juleny Belisario</title>
 
-<link rel="icon" type="image/x-icon" href="images/favicon.ico">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
 
@@ -16,86 +15,32 @@ body{
 font-family:'Inter',sans-serif;
 background:#0f0f1a;
 color:#fff;
-line-height:1.6;
 }
 
-/* CONTENEDOR CENTRAL */
 .container{
 max-width:1100px;
 margin:auto;
-padding:0 20px;
+padding:40px 20px;
 }
 
-/* HEADER */
-header{
-padding:80px 0;
-display:flex;
-flex-wrap:wrap;
-align-items:center;
-justify-content:center;
-gap:60px;
-}
-
-header img{
-width:200px;
-border-radius:50%;
-border:5px solid #fff;
-}
-
-.sobre-mi{max-width:500px;}
-
-.sobre-mi h1{
-font-size:2.8em;
-margin-bottom:15px;
-color:#9b5de5;
-}
-
-.cv-button{
-display:inline-block;
-margin-top:20px;
-padding:12px 24px;
-background:#fff;
-color:#6a0dad;
-border-radius:30px;
-text-decoration:none;
-}
-
-/* SEPARADOR */
-.separador{
-width:100%;
-height:2px;
-background:linear-gradient(90deg,#6a0dad,#00e5ff);
-margin:60px 0;
-}
-
-/* PROYECTOS */
 h2{
 text-align:center;
-margin-bottom:40px;
-font-size:2.2em;
+margin:60px 0 40px;
 color:#9b5de5;
 }
 
 .proyecto{
-margin-bottom:70px;
-padding:30px;
 background:#1a1a2e;
-border-radius:20px;
+padding:30px;
+border-radius:15px;
+margin-bottom:60px;
 }
 
 .proyecto h3{
 text-align:center;
-margin-bottom:10px;
-}
-
-.ficha{
-text-align:center;
 margin-bottom:20px;
-font-size:0.9em;
-color:#aaa;
 }
 
-/* SWIPER */
 .swiper{
 width:100%;
 margin-bottom:20px;
@@ -107,13 +52,12 @@ align-items:center;
 justify-content:center;
 }
 
-/* Apps vertical */
+/* Proporciones */
 .facturacionSwiper .swiper-slide,
 .listaSwiper .swiper-slide{
 aspect-ratio:9/16;
 }
 
-/* Web horizontal */
 .ropisportSwiper .swiper-slide{
 aspect-ratio:16/9;
 }
@@ -123,22 +67,13 @@ aspect-ratio:16/9;
 width:100%;
 height:100%;
 object-fit:contain;
-border-radius:12px;
+border-radius:10px;
 background:#000;
-border:none;
 }
 
 .swiper-button-next,
 .swiper-button-prev{
 color:#00e5ff;
-}
-
-footer{
-text-align:center;
-padding:30px 0;
-color:#aaa;
-margin-top:40px;
-border-top:1px solid #333;
 }
 </style>
 </head>
@@ -147,26 +82,11 @@ border-top:1px solid #333;
 
 <div class="container">
 
-<header>
-<img src="tu-foto.jpg" alt="Foto Juleny">
-<div class="sobre-mi">
-<h1>Juleny Belisario</h1>
-<p>
-Desarrolladora Frontend enfocada en crear experiencias digitales modernas y funcionales.
-Trabajo con React, Angular, Java, Android Studio y WordPress.
-</p>
-<a href="Currículum_Programacion_Juleny.pdf" class="cv-button" target="_blank">📄 Descargar CV</a>
-</div>
-</header>
-
-<div class="separador"></div>
-
 <h2>🚀 Mis Proyectos</h2>
 
 <!-- FACTURACIÓN -->
 <div class="proyecto">
 <h3>Aplicación de Facturación</h3>
-<p class="ficha">Android Studio · SQL Server · API .NET</p>
 
 <div class="swiper facturacionSwiper">
 <div class="swiper-wrapper">
@@ -175,37 +95,42 @@ Trabajo con React, Angular, Java, Android Studio y WordPress.
 </div>
 <div class="swiper-button-next"></div>
 <div class="swiper-button-prev"></div>
-<div class="swiper-pagination"></div>
 </div>
+
+<p>App móvil desarrollada con Android Studio y API .NET.</p>
 </div>
 
 <!-- ROPISPORT -->
 <div class="proyecto">
 <h3>RopiSport</h3>
-<p class="ficha">WordPress · CSS personalizado · Hosting IONOS</p>
 
 <div class="swiper ropisportSwiper">
 <div class="swiper-wrapper">
 <div class="swiper-slide"><img src="images/ropisport1.jpg"></div>
 <div class="swiper-slide"><img src="images/ropisport2.jpg"></div>
+
 <div class="swiper-slide">
-<iframe src="https://drive.google.com/file/d/1TxDlgft9FQin6TrWkVXJvDu65-VNNs8C/preview" allow="autoplay"></iframe>
+<iframe 
+src="https://drive.google.com/file/d/1TxDlgft9FQin6TrWkVXJvDu65-VNNs8C/preview" 
+allow="autoplay">
+</iframe>
 </div>
+
 </div>
 <div class="swiper-button-next"></div>
 <div class="swiper-button-prev"></div>
-<div class="swiper-pagination"></div>
 </div>
 
 <p>
-<a href="https://ropisport.com" target="_blank">Ver sitio</a>
+Sitio web desarrollado en WordPress.
+<br><br>
+<a href="https://ropisport.com" target="_blank" style="color:#00e5ff;">Ver sitio</a>
 </p>
 </div>
 
-<!-- LISTA COMPRA -->
+<!-- LISTA -->
 <div class="proyecto">
 <h3>Lista de la Compra</h3>
-<p class="ficha">React Native · Expo</p>
 
 <div class="swiper listaSwiper">
 <div class="swiper-wrapper">
@@ -214,24 +139,19 @@ Trabajo con React, Angular, Java, Android Studio y WordPress.
 </div>
 <div class="swiper-button-next"></div>
 <div class="swiper-button-prev"></div>
-<div class="swiper-pagination"></div>
-</div>
 </div>
 
-<footer>
-© 2026 Juleny Belisario
-</footer>
+<p>App desarrollada con React Native y Expo.</p>
+</div>
 
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
 <script>
-new Swiper(".facturacionSwiper",{slidesPerView:1,spaceBetween:20,loop:true,pagination:{el:".facturacionSwiper .swiper-pagination",clickable:true},navigation:{nextEl:".facturacionSwiper .swiper-button-next",prevEl:".facturacionSwiper .swiper-button-prev"}});
-
-new Swiper(".ropisportSwiper",{slidesPerView:1,spaceBetween:20,loop:true,pagination:{el:".ropisportSwiper .swiper-pagination",clickable:true},navigation:{nextEl:".ropisportSwiper .swiper-button-next",prevEl:".ropisportSwiper .swiper-button-prev"}});
-
-new Swiper(".listaSwiper",{slidesPerView:1,spaceBetween:20,loop:true,pagination:{el:".listaSwiper .swiper-pagination",clickable:true},navigation:{nextEl:".listaSwiper .swiper-button-next",prevEl:".listaSwiper .swiper-button-prev"}});
+new Swiper(".facturacionSwiper",{loop:true});
+new Swiper(".ropisportSwiper",{loop:true});
+new Swiper(".listaSwiper",{loop:true});
 </script>
 
 </body>
