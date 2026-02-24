@@ -23,7 +23,6 @@ overflow-x:hidden;
 scroll-behavior:smooth;
 }
 
-/* HEADER */
 header{
 padding:100px 20px;
 display:flex;
@@ -67,7 +66,6 @@ color:#fff;
 transform:translateY(-3px);
 }
 
-/* HABILIDADES */
 #habilidades{margin-top:60px;text-align:center;}
 #habilidades h2{margin-bottom:30px;font-size:2.4em;color:#9b5de5;}
 
@@ -78,11 +76,6 @@ flex-wrap:wrap;
 gap:30px;
 }
 
-.habilidades div{
-text-align:center;
-transition:.3s ease;
-}
-
 .habilidades i{
 font-size:2.2em;
 background:linear-gradient(135deg,#9b5de5,#00e5ff);
@@ -91,25 +84,12 @@ background:linear-gradient(135deg,#9b5de5,#00e5ff);
 margin-bottom:8px;
 }
 
-.habilidades div:hover{
-transform:translateY(-8px);
-}
-
-/* SEPARADOR */
 .separador{
 width:80%;
 height:3px;
 background:linear-gradient(90deg,#6a0dad,#00e5ff);
 margin:60px auto;
 border-radius:5px;
-}
-
-/* PROYECTOS */
-section h2{
-text-align:center;
-margin-bottom:40px;
-font-size:2.4em;
-color:#9b5de5;
 }
 
 .proyecto{
@@ -125,84 +105,39 @@ transform:translateY(-8px);
 box-shadow:0 20px 50px rgba(155,93,229,0.2);
 }
 
-.proyecto h3{
-text-align:center;
-margin-bottom:10px;
-}
+.proyecto h3{ text-align:center; margin-bottom:10px; }
+.ficha{ text-align:center; margin-bottom:20px; font-size:0.9em; color:#aaa; }
 
-.ficha{
-text-align:center;
-margin-bottom:20px;
-font-size:0.9em;
-color:#aaa;
-}
+.swiper{ width:100%; margin-bottom:20px; height:auto !important; }
 
-/* SWIPER GENERAL */
-.swiper{
-width:100%;
-margin-bottom:20px;
-}
-
-/* 📱 Proyectos móviles */
-.facturacionSwiper img,
-.facturacionSwiper video,
-.listaSwiper img,
-.listaSwiper video{
-width:100%;
-height:auto;
-object-fit:contain;
-background:#000;
-border-radius:12px;
-}
-
-/* 🌐 Proyecto web */
-.ropisportSwiper{
-max-width:1000px;
-margin:auto;
-}
-
-.ropisportSwiper .swiper-slide{
+/* Uniform project slider */
+.swiper-slide{
 display:flex;
 justify-content:center;
 align-items:center;
-background:#111;
-border-radius:12px;
+background:#000;
+height:320px; /* Same size for all */
 overflow:hidden;
-box-shadow:0 15px 40px rgba(0,0,0,0.5);
-border:1px solid rgba(255,255,255,0.05);
+border-radius:12px;
 }
 
-.ropisportSwiper img,
-.ropisportSwiper video{
+/* IMG & IFRAME */
+.swiper-slide img,
+.swiper-slide iframe{
+max-height:100%;
 width:100%;
-height:auto;
-max-height:500px;
-object-fit:contain;
+object-fit:cover;
 border-radius:12px;
 }
 
 .swiper-button-next,
-.swiper-button-prev{
-color:#00e5ff;
-}
+.swiper-button-prev{ color:#00e5ff; }
 
-/* CONTACTO */
 #contacto{text-align:center;}
 
-form{
-max-width:550px;
-margin:auto;
-display:flex;
-flex-direction:column;
-gap:15px;
-}
+form{ max-width:550px; margin:auto; display:flex; flex-direction:column; gap:15px; }
 
-input,textarea{
-padding:14px;
-border-radius:10px;
-border:none;
-font-size:1em;
-}
+input,textarea{ padding:14px; border-radius:10px; border:none; font-size:1em; }
 
 button{
 padding:14px;
@@ -215,14 +150,6 @@ font-weight:bold;
 cursor:pointer;
 }
 
-.mensaje-exito{
-margin-top:15px;
-color:#00e5ff;
-font-weight:bold;
-display:none;
-}
-
-/* FOOTER */
 footer{
 background:#0a0a14;
 text-align:center;
@@ -232,36 +159,15 @@ color:#aaa;
 border-top:2px solid #6a0dad;
 }
 
-.social-icons a{
-color:#fff;
-margin:0 12px;
-font-size:1.8em;
-}
+.social-icons a{ color:#fff; margin:0 12px; font-size:1.8em; }
 
-.social-icons a:hover{
-color:#00e5ff;
-}
+.social-icons a:hover{ color:#00e5ff; }
 
-/* RESPONSIVE */
 @media(max-width:768px){
-
-header{
-padding:60px 20px;
-gap:30px;
-}
-
-header img{
-width:160px;
-}
-
-.sobre-mi h1{
-font-size:2.2em;
-}
-
-.proyecto{
-padding:25px;
-}
-
+header{padding:60px 20px; gap:30px;}
+header img{width:160px;}
+.sobre-mi h1{font-size:2.2em;}
+.proyecto{padding:25px;}
 }
 </style>
 </head>
@@ -272,11 +178,7 @@ padding:25px;
 <img src="tu-foto.jpg" alt="Foto Juleny">
 <div class="sobre-mi">
 <h1>Juleny Belisario</h1>
-<p>
-Desarrolladora Frontend y diseñadora de interfaces enfocada en crear experiencias digitales modernas, funcionales y visualmente atractivas.
-Trabajo con tecnologías como HTML, CSS, Java, Android Studio y un poco de React y Angular, además de desarrollo web en WordPress.
-Me apasiona transformar ideas en soluciones digitales eficientes cuidando tanto la lógica como la experiencia del usuario.
-</p>
+<p>Desarrolladora Frontend enfocada en crear experiencias digitales modernas y funcionales.</p>
 <a href="Currículum_Programacion_Juleny.pdf" class="cv-button" target="_blank">📄 Descargar mi CV</a>
 </div>
 </header>
@@ -299,16 +201,15 @@ Me apasiona transformar ideas en soluciones digitales eficientes cuidando tanto 
 <section>
 <h2>🚀 Mis Proyectos</h2>
 
+<!-- Facturación -->
 <div class="proyecto">
 <h3>Aplicación de Facturación</h3>
 <p class="ficha">Android Studio · SQL Server · API .NET Core</p>
 <div class="swiper facturacionSwiper">
 <div class="swiper-wrapper">
+<div class="swiper-slide"><img src="images/facturacion1.jpg"></div>
 <div class="swiper-slide">
-<img src="images/facturacion1.jpg">
-</div>
-<div class="swiper-slide">
-<video controls muted playsinline preload="metadata">
+<video controls muted playsinline preload="metadata" style="width:100%; height:auto;">
 <source src="images/facturacion-demo.mp4" type="video/mp4">
 </video>
 </div>
@@ -317,9 +218,9 @@ Me apasiona transformar ideas en soluciones digitales eficientes cuidando tanto 
 <div class="swiper-button-prev"></div>
 <div class="swiper-pagination"></div>
 </div>
-<p>Aplicación móvil desarrollada para la gestión de facturación con conexión a base de datos y API personalizada.</p>
 </div>
 
+<!-- RopiSport -->
 <div class="proyecto">
 <h3>RopiSport</h3>
 <p class="ficha">WordPress · CSS personalizado · Hosting IONOS</p>
@@ -329,22 +230,18 @@ Me apasiona transformar ideas en soluciones digitales eficientes cuidando tanto 
 <div class="swiper-slide"><img src="images/ropisport2.jpg"></div>
 <div class="swiper-slide"><img src="images/ropisport3.jpg"></div>
 <div class="swiper-slide">
-<video controls muted playsinline preload="metadata" poster="images/ropisport1.jpg">
-<source src="images/ropisport-demo.mp4" type="video/mp4">
-</video>
+<iframe src="https://drive.google.com/file/d/1TxDlgft9FQin6TrWkVXJvDu65-VNNs8C/preview"
+allow="autoplay; fullscreen"></iframe>
 </div>
 </div>
 <div class="swiper-button-next"></div>
 <div class="swiper-button-prev"></div>
 <div class="swiper-pagination"></div>
 </div>
-<p>
-Sitio web desarrollado para una marca deportiva, enfocado en experiencia visual moderna, diseño responsive y optimización de rendimiento.
-<br><br>
 <a href="https://ropisport.com" target="_blank" class="cv-button">🌐 Ver sitio</a>
-</p>
 </div>
 
+<!-- Lista -->
 <div class="proyecto">
 <h3>Lista de la Compra</h3>
 <p class="ficha">React Native · Expo</p>
@@ -353,7 +250,7 @@ Sitio web desarrollado para una marca deportiva, enfocado en experiencia visual 
 <div class="swiper-slide"><img src="images/lista1.jpg"></div>
 <div class="swiper-slide"><img src="images/lista2.jpg"></div>
 <div class="swiper-slide">
-<video controls muted playsinline preload="metadata">
+<video controls muted playsinline preload="metadata" style="width:100%; height:auto;">
 <source src="images/lista-demo.mp4" type="video/mp4">
 </video>
 </div>
@@ -362,9 +259,7 @@ Sitio web desarrollado para una marca deportiva, enfocado en experiencia visual 
 <div class="swiper-button-prev"></div>
 <div class="swiper-pagination"></div>
 </div>
-<p>Aplicación móvil desarrollada para la gestión personalizada de listas de compra.</p>
 </div>
-
 </section>
 
 <section id="contacto">
@@ -419,28 +314,11 @@ const swiper=document.querySelector(swiperSelector);
 swiper.addEventListener("transitionend",()=>{
 const videos=swiper.querySelectorAll("video");
 videos.forEach(v=>{v.pause();v.currentTime=0;});
-const active=swiper.querySelector(".swiper-slide-active video");
-if(active){
-active.muted=true;
-active.play();
-}
 });
 }
 
 controlarVideo(".facturacionSwiper");
-controlarVideo(".ropisportSwiper");
 controlarVideo(".listaSwiper");
-
-const form=document.getElementById("contact-form");
-form.addEventListener("submit",async(e)=>{
-e.preventDefault();
-const data=new FormData(form);
-const res=await fetch(form.action,{method:form.method,body:data,headers:{'Accept':'application/json'}});
-if(res.ok){
-form.reset();
-form.querySelector(".mensaje-exito").style.display="block";
-}
-});
 </script>
 
 </body>
