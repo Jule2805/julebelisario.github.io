@@ -23,6 +23,7 @@ overflow-x:hidden;
 scroll-behavior:smooth;
 }
 
+/* HEADER */
 header{
 padding:100px 20px;
 display:flex;
@@ -66,6 +67,7 @@ color:#fff;
 transform:translateY(-3px);
 }
 
+/* HABILIDADES */
 #habilidades{margin-top:60px;text-align:center;}
 #habilidades h2{margin-bottom:30px;font-size:2.4em;color:#9b5de5;}
 
@@ -76,6 +78,11 @@ flex-wrap:wrap;
 gap:30px;
 }
 
+.habilidades div{
+text-align:center;
+transition:.3s ease;
+}
+
 .habilidades i{
 font-size:2.2em;
 background:linear-gradient(135deg,#9b5de5,#00e5ff);
@@ -84,12 +91,25 @@ background:linear-gradient(135deg,#9b5de5,#00e5ff);
 margin-bottom:8px;
 }
 
+.habilidades div:hover{
+transform:translateY(-8px);
+}
+
+/* SEPARADOR */
 .separador{
 width:80%;
 height:3px;
 background:linear-gradient(90deg,#6a0dad,#00e5ff);
 margin:60px auto;
 border-radius:5px;
+}
+
+/* PROYECTOS */
+section h2{
+text-align:center;
+margin-bottom:40px;
+font-size:2.4em;
+color:#9b5de5;
 }
 
 .proyecto{
@@ -105,39 +125,65 @@ transform:translateY(-8px);
 box-shadow:0 20px 50px rgba(155,93,229,0.2);
 }
 
-.proyecto h3{ text-align:center; margin-bottom:10px; }
-.ficha{ text-align:center; margin-bottom:20px; font-size:0.9em; color:#aaa; }
+.proyecto h3{
+text-align:center;
+margin-bottom:10px;
+}
 
-.swiper{ width:100%; margin-bottom:20px; height:auto !important; }
+.ficha{
+text-align:center;
+margin-bottom:20px;
+font-size:0.9em;
+color:#aaa;
+}
 
-/* Uniform project slider */
+/* SWIPER UNIFORME */
+.swiper{
+width:100%;
+max-width:900px;
+margin:0 auto 20px auto;
+}
+
 .swiper-slide{
 display:flex;
 justify-content:center;
 align-items:center;
-background:#000;
-height:320px; /* Same size for all */
+background:#111;
+border-radius:12px;
 overflow:hidden;
-border-radius:12px;
+aspect-ratio:16/9;
 }
 
-/* IMG & IFRAME */
 .swiper-slide img,
-.swiper-slide iframe{
-max-height:100%;
+.swiper-slide video{
 width:100%;
-object-fit:cover;
-border-radius:12px;
+height:100%;
+object-fit:contain;
 }
 
+/* BOTONES */
 .swiper-button-next,
-.swiper-button-prev{ color:#00e5ff; }
+.swiper-button-prev{
+color:#00e5ff;
+}
 
+/* CONTACTO */
 #contacto{text-align:center;}
 
-form{ max-width:550px; margin:auto; display:flex; flex-direction:column; gap:15px; }
+form{
+max-width:550px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
 
-input,textarea{ padding:14px; border-radius:10px; border:none; font-size:1em; }
+input,textarea{
+padding:14px;
+border-radius:10px;
+border:none;
+font-size:1em;
+}
 
 button{
 padding:14px;
@@ -150,6 +196,14 @@ font-weight:bold;
 cursor:pointer;
 }
 
+.mensaje-exito{
+margin-top:15px;
+color:#00e5ff;
+font-weight:bold;
+display:none;
+}
+
+/* FOOTER */
 footer{
 background:#0a0a14;
 text-align:center;
@@ -159,12 +213,18 @@ color:#aaa;
 border-top:2px solid #6a0dad;
 }
 
-.social-icons a{ color:#fff; margin:0 12px; font-size:1.8em; }
+.social-icons a{
+color:#fff;
+margin:0 12px;
+font-size:1.8em;
+}
 
-.social-icons a:hover{ color:#00e5ff; }
+.social-icons a:hover{
+color:#00e5ff;
+}
 
 @media(max-width:768px){
-header{padding:60px 20px; gap:30px;}
+header{padding:60px 20px;gap:30px;}
 header img{width:160px;}
 .sobre-mi h1{font-size:2.2em;}
 .proyecto{padding:25px;}
@@ -178,7 +238,11 @@ header img{width:160px;}
 <img src="tu-foto.jpg" alt="Foto Juleny">
 <div class="sobre-mi">
 <h1>Juleny Belisario</h1>
-<p>Desarrolladora Frontend enfocada en crear experiencias digitales modernas y funcionales.</p>
+<p>
+Soy desarrolladora Frontend y diseñadora de interfaces enfocada en crear experiencias digitales modernas, funcionales y visualmente atractivas.
+Trabajo con tecnologías como React, Angular, Java y Android Studio, además de desarrollo web en WordPress.
+Me apasiona transformar ideas en soluciones digitales eficientes cuidando tanto la lógica como la experiencia del usuario.
+</p>
 <a href="Currículum_Programacion_Juleny.pdf" class="cv-button" target="_blank">📄 Descargar mi CV</a>
 </div>
 </header>
@@ -201,7 +265,6 @@ header img{width:160px;}
 <section>
 <h2>🚀 Mis Proyectos</h2>
 
-<!-- Facturación -->
 <div class="proyecto">
 <h3>Aplicación de Facturación</h3>
 <p class="ficha">Android Studio · SQL Server · API .NET Core</p>
@@ -209,7 +272,7 @@ header img{width:160px;}
 <div class="swiper-wrapper">
 <div class="swiper-slide"><img src="images/facturacion1.jpg"></div>
 <div class="swiper-slide">
-<video controls muted playsinline preload="metadata" style="width:100%; height:auto;">
+<video controls preload="metadata">
 <source src="images/facturacion-demo.mp4" type="video/mp4">
 </video>
 </div>
@@ -220,7 +283,6 @@ header img{width:160px;}
 </div>
 </div>
 
-<!-- RopiSport -->
 <div class="proyecto">
 <h3>RopiSport</h3>
 <p class="ficha">WordPress · CSS personalizado · Hosting IONOS</p>
@@ -230,18 +292,22 @@ header img{width:160px;}
 <div class="swiper-slide"><img src="images/ropisport2.jpg"></div>
 <div class="swiper-slide"><img src="images/ropisport3.jpg"></div>
 <div class="swiper-slide">
-<iframe src="https://drive.google.com/file/d/1TxDlgft9FQin6TrWkVXJvDu65-VNNs8C/preview"
-allow="autoplay; fullscreen"></iframe>
+<video controls preload="metadata">
+<source src="images/ropisport-demo.mp4" type="video/mp4">
+</video>
 </div>
 </div>
 <div class="swiper-button-next"></div>
 <div class="swiper-button-prev"></div>
 <div class="swiper-pagination"></div>
 </div>
+<p>
+Sitio web desarrollado para una marca deportiva, enfocado en experiencia visual moderna, diseño responsive y optimización de rendimiento.
+<br><br>
 <a href="https://ropisport.com" target="_blank" class="cv-button">🌐 Ver sitio</a>
+</p>
 </div>
 
-<!-- Lista -->
 <div class="proyecto">
 <h3>Lista de la Compra</h3>
 <p class="ficha">React Native · Expo</p>
@@ -250,7 +316,7 @@ allow="autoplay; fullscreen"></iframe>
 <div class="swiper-slide"><img src="images/lista1.jpg"></div>
 <div class="swiper-slide"><img src="images/lista2.jpg"></div>
 <div class="swiper-slide">
-<video controls muted playsinline preload="metadata" style="width:100%; height:auto;">
+<video controls preload="metadata">
 <source src="images/lista-demo.mp4" type="video/mp4">
 </video>
 </div>
@@ -260,26 +326,11 @@ allow="autoplay; fullscreen"></iframe>
 <div class="swiper-pagination"></div>
 </div>
 </div>
-</section>
 
-<section id="contacto">
-<h2>📬 Contáctame</h2>
-<form id="contact-form" action="https://formspree.io/f/mandvgjw" method="POST">
-<input type="text" name="nombre" placeholder="Tu nombre" required>
-<input type="email" name="email" placeholder="Tu correo" required>
-<textarea name="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
-<button type="submit">Enviar Mensaje</button>
-<div class="mensaje-exito">✅ ¡Gracias por tu mensaje!</div>
-</form>
 </section>
 
 <footer>
 © 2026 Juleny Belisario
-<div class="social-icons">
-<a href="http://www.linkedin.com/in/jule-belisario-439b4336a" target="_blank"><i class="fab fa-linkedin"></i></a>
-<a href="https://github.com/Jule2805" target="_blank"><i class="fab fa-github"></i></a>
-<a href="https://wa.me/34611516149" target="_blank"><i class="fab fa-whatsapp"></i></a>
-</div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
@@ -288,37 +339,19 @@ allow="autoplay; fullscreen"></iframe>
 <script>
 AOS.init({duration:1000,once:true});
 
-function initSwiper(selector, autoplay=false){
+function initSwiper(selector){
 return new Swiper(selector,{
 slidesPerView:1,
 spaceBetween:20,
 loop:true,
-autoplay: autoplay ? {delay:3000,disableOnInteraction:false}:false,
 pagination:{el:selector+" .swiper-pagination",clickable:true},
 navigation:{nextEl:selector+" .swiper-button-next",prevEl:selector+" .swiper-button-prev"}
 });
 }
 
-const facturacionSwiper=initSwiper(".facturacionSwiper");
-const ropisportSwiper=initSwiper(".ropisportSwiper",true);
-const listaSwiper=initSwiper(".listaSwiper");
-
-window.addEventListener("load", () => {
-facturacionSwiper.update();
-ropisportSwiper.update();
-listaSwiper.update();
-});
-
-function controlarVideo(swiperSelector){
-const swiper=document.querySelector(swiperSelector);
-swiper.addEventListener("transitionend",()=>{
-const videos=swiper.querySelectorAll("video");
-videos.forEach(v=>{v.pause();v.currentTime=0;});
-});
-}
-
-controlarVideo(".facturacionSwiper");
-controlarVideo(".listaSwiper");
+initSwiper(".facturacionSwiper");
+initSwiper(".ropisportSwiper");
+initSwiper(".listaSwiper");
 </script>
 
 </body>
