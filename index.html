@@ -118,18 +118,18 @@ padding:40px;
 background:#1a1a2e;
 border-radius:20px;
 transition:0.4s ease;
+}
 
+.proyecto:hover{
+transform:translateY(-8px);
+box-shadow:0 20px 50px rgba(155,93,229,0.2);
 }
 
 .proyecto h3{
 text-align:center;
 margin-bottom:10px;
 }
-  
-.proyecto:hover{
-transform:translateY(-8px);
-box-shadow:0 20px 50px rgba(155,93,229,0.2);
-}
+
 .ficha{
 text-align:center;
 margin-bottom:20px;
@@ -137,18 +137,10 @@ font-size:0.9em;
 color:#aaa;
 }
 
+/* SWIPER GENERAL */
 .swiper{
 width:100%;
-height:420px;
 margin-bottom:20px;
-}
-
-.swiper-slide img,
-.swiper-slide video{
-width:100%;
-height:100%;
-border-radius:12px;
-background:#000;
 }
 
 /* 📱 Proyectos móviles */
@@ -156,8 +148,11 @@ background:#000;
 .facturacionSwiper video,
 .listaSwiper img,
 .listaSwiper video{
+width:100%;
+height:auto;
 object-fit:contain;
 background:#000;
+border-radius:12px;
 }
 
 /* 🌐 Proyecto web */
@@ -172,7 +167,7 @@ justify-content:center;
 align-items:center;
 background:#111;
 border-radius:12px;
-overflow:hidden;ç
+overflow:hidden;
 box-shadow:0 15px 40px rgba(0,0,0,0.5);
 border:1px solid rgba(255,255,255,0.05);
 }
@@ -185,6 +180,7 @@ max-height:500px;
 object-fit:contain;
 border-radius:12px;
 }
+
 .swiper-button-next,
 .swiper-button-prev{
 color:#00e5ff;
@@ -245,7 +241,9 @@ font-size:1.8em;
 .social-icons a:hover{
 color:#00e5ff;
 }
-  @media(max-width:768px){
+
+/* RESPONSIVE */
+@media(max-width:768px){
 
 header{
 padding:60px 20px;
@@ -262,10 +260,6 @@ font-size:2.2em;
 
 .proyecto{
 padding:25px;
-}
-
-.swiper{
-height:auto;
 }
 
 }
@@ -310,8 +304,14 @@ Me apasiona transformar ideas en soluciones digitales eficientes cuidando tanto 
 <p class="ficha">Android Studio · SQL Server · API .NET Core</p>
 <div class="swiper facturacionSwiper">
 <div class="swiper-wrapper">
-<div class="swiper-slide"><img src="images/facturacion1.jpg"></div>
-<div class="swiper-slide"><video controls src="images/facturacion-demo.mp4"></video></div>
+<div class="swiper-slide">
+<img src="images/facturacion1.jpg">
+</div>
+<div class="swiper-slide">
+<video controls muted playsinline preload="metadata">
+<source src="images/facturacion-demo.mp4" type="video/mp4">
+</video>
+</div>
 </div>
 <div class="swiper-button-next"></div>
 <div class="swiper-button-prev"></div>
@@ -328,7 +328,11 @@ Me apasiona transformar ideas en soluciones digitales eficientes cuidando tanto 
 <div class="swiper-slide"><img src="images/ropisport1.jpg"></div>
 <div class="swiper-slide"><img src="images/ropisport2.jpg"></div>
 <div class="swiper-slide"><img src="images/ropisport3.jpg"></div>
-<div class="swiper-slide"><video controls src="images/ropisport-demo.mp4"></video></div>
+<div class="swiper-slide">
+<video controls muted playsinline preload="metadata" poster="images/ropisport1.jpg">
+<source src="images/ropisport-demo.mp4" type="video/mp4">
+</video>
+</div>
 </div>
 <div class="swiper-button-next"></div>
 <div class="swiper-button-prev"></div>
@@ -337,7 +341,8 @@ Me apasiona transformar ideas en soluciones digitales eficientes cuidando tanto 
 <p>
 Sitio web desarrollado para una marca deportiva, enfocado en experiencia visual moderna, diseño responsive y optimización de rendimiento.
 <br><br>
-<a href="https://ropisport.com" target="_blank" class="cv-button">🌐 Ver sitio</a></p>
+<a href="https://ropisport.com" target="_blank" class="cv-button">🌐 Ver sitio</a>
+</p>
 </div>
 
 <div class="proyecto">
@@ -347,7 +352,11 @@ Sitio web desarrollado para una marca deportiva, enfocado en experiencia visual 
 <div class="swiper-wrapper">
 <div class="swiper-slide"><img src="images/lista1.jpg"></div>
 <div class="swiper-slide"><img src="images/lista2.jpg"></div>
-<div class="swiper-slide"><video controls src="images/lista-demo.mp4"></video></div>
+<div class="swiper-slide">
+<video controls muted playsinline preload="metadata">
+<source src="images/lista-demo.mp4" type="video/mp4">
+</video>
+</div>
 </div>
 <div class="swiper-button-next"></div>
 <div class="swiper-button-prev"></div>
@@ -399,13 +408,22 @@ const facturacionSwiper=initSwiper(".facturacionSwiper");
 const ropisportSwiper=initSwiper(".ropisportSwiper",true);
 const listaSwiper=initSwiper(".listaSwiper");
 
+window.addEventListener("load", () => {
+facturacionSwiper.update();
+ropisportSwiper.update();
+listaSwiper.update();
+});
+
 function controlarVideo(swiperSelector){
 const swiper=document.querySelector(swiperSelector);
 swiper.addEventListener("transitionend",()=>{
 const videos=swiper.querySelectorAll("video");
 videos.forEach(v=>{v.pause();v.currentTime=0;});
 const active=swiper.querySelector(".swiper-slide-active video");
-if(active) active.play();
+if(active){
+active.muted=true;
+active.play();
+}
 });
 }
 
@@ -418,7 +436,10 @@ form.addEventListener("submit",async(e)=>{
 e.preventDefault();
 const data=new FormData(form);
 const res=await fetch(form.action,{method:form.method,body:data,headers:{'Accept':'application/json'}});
-if(res.ok){form.reset();form.querySelector(".mensaje-exito").style.display="block";}
+if(res.ok){
+form.reset();
+form.querySelector(".mensaje-exito").style.display="block";
+}
 });
 </script>
 
