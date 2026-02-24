@@ -20,6 +20,7 @@ background:#0f0f1a;
 color:#fff;
 line-height:1.6;
 overflow-x:hidden;
+scroll-behavior:smooth;
 }
 
 /* HEADER */
@@ -116,13 +117,19 @@ margin-bottom:80px;
 padding:40px;
 background:#1a1a2e;
 border-radius:20px;
+transition:0.4s ease;
+
 }
 
 .proyecto h3{
 text-align:center;
 margin-bottom:10px;
 }
-
+  
+.proyecto:hover{
+transform:translateY(-8px);
+box-shadow:0 20px 50px rgba(155,93,229,0.2);
+}
 .ficha{
 text-align:center;
 margin-bottom:20px;
@@ -154,11 +161,30 @@ background:#000;
 }
 
 /* 🌐 Proyecto web */
-.ropisportSwiper img,
-.ropisportSwiper video{
-object-fit:cover;
+.ropisportSwiper{
+max-width:1000px;
+margin:auto;
 }
 
+.ropisportSwiper .swiper-slide{
+display:flex;
+justify-content:center;
+align-items:center;
+background:#111;
+border-radius:12px;
+overflow:hidden;ç
+box-shadow:0 15px 40px rgba(0,0,0,0.5);
+border:1px solid rgba(255,255,255,0.05);
+}
+
+.ropisportSwiper img,
+.ropisportSwiper video{
+width:100%;
+height:auto;
+max-height:500px;
+object-fit:contain;
+border-radius:12px;
+}
 .swiper-button-next,
 .swiper-button-prev{
 color:#00e5ff;
@@ -219,6 +245,30 @@ font-size:1.8em;
 .social-icons a:hover{
 color:#00e5ff;
 }
+  @media(max-width:768px){
+
+header{
+padding:60px 20px;
+gap:30px;
+}
+
+header img{
+width:160px;
+}
+
+.sobre-mi h1{
+font-size:2.2em;
+}
+
+.proyecto{
+padding:25px;
+}
+
+.swiper{
+height:auto;
+}
+
+}
 </style>
 </head>
 
@@ -229,8 +279,8 @@ color:#00e5ff;
 <div class="sobre-mi">
 <h1>Juleny Belisario</h1>
 <p>
-Soy desarrolladora Frontend y diseñadora de interfaces enfocada en crear experiencias digitales modernas, funcionales y visualmente atractivas.
-Trabajo con tecnologías como React, Angular, Java y Android Studio, además de desarrollo web en WordPress.
+Desarrolladora Frontend y diseñadora de interfaces enfocada en crear experiencias digitales modernas, funcionales y visualmente atractivas.
+Trabajo con tecnologías como HTML, CSS, Java, Android Studio y un poco de React y Angular, además de desarrollo web en WordPress.
 Me apasiona transformar ideas en soluciones digitales eficientes cuidando tanto la lógica como la experiencia del usuario.
 </p>
 <a href="Currículum_Programacion_Juleny.pdf" class="cv-button" target="_blank">📄 Descargar mi CV</a>
@@ -287,8 +337,7 @@ Me apasiona transformar ideas en soluciones digitales eficientes cuidando tanto 
 <p>
 Sitio web desarrollado para una marca deportiva, enfocado en experiencia visual moderna, diseño responsive y optimización de rendimiento.
 <br><br>
-<a href="https://ropisport.com" target="_blank">Ver sitio</a>
-</p>
+<a href="https://ropisport.com" target="_blank" class="cv-button">🌐 Ver sitio</a></p>
 </div>
 
 <div class="proyecto">
