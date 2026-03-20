@@ -53,12 +53,22 @@ header img {
     box-shadow: 0 0 40px rgba(155, 93, 229, 0.5);
 }
 
+
+.sobre-mi { max-width: 700px; }
+
 .sobre-mi h1 {
     font-size: clamp(2.5rem, 8vw, 4rem);
+    margin-bottom: 10px;
     background: linear-gradient(90deg, #fff, var(--primary), var(--secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 800;
+}
+
+.sobre-mi p {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 30px;
 }
 
 .cv-button {
@@ -72,8 +82,8 @@ header img {
     border-radius: 50px;
     transition: 0.4s;
     text-decoration: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
-
 /* HABILIDADES DEGRADADAS EN UNA LÍNEA */
 #habilidades { padding: 40px 20px; text-align: center; }
 .habilidades {
@@ -214,9 +224,27 @@ footer {
     text-align: center;
     border-top: 1px solid rgba(255,255,255,0.1);
 }
-.social-icons { display: flex; justify-content: center; gap: 20px; margin-bottom: 15px; }
-.social-icons a { font-size: 1.8rem; color: #fff; transition: 0.3s; }
-.social-icons a:hover { color: var(--secondary); transform: translateY(-3px); }
+.social-icons { display: flex; gap: 20px; }
+.social-icons a {
+    width: 50px;
+    height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    background: var(--primary);
+    transform: translateY(-5px);
+}
+
+.social-icons a i {
+    font-size: 1.8rem;
+    color: #fff; /* Logos de redes sociales también BLANCOS */
+}
 
 @media(max-width:768px){
     .proyecto { padding: 20px; }
@@ -233,7 +261,7 @@ footer {
     <img src="tu-foto.jpg" alt="Foto Juleny">
     <div class="sobre-mi">
         <h1>Juleny Belisario</h1>
-        <p>Soy desarrolladora Frontend y diseñadora de interfaces enfocada en crear experiencias digitales modernas, funcionales y visualmente atractivas. Trabajo con tecnologías como HTML, CSS, Java, Android Studio, un poco de React y Angular, además de desarrollo web en WordPress</p>
+        <p>Soy desarrolladora Frontend y diseñadora de interfaces enfocada en crear experiencias digitales modernas, funcionales y visualmente atractivas. Trabajo con tecnologías como HTML, CSS, Java, Android Studio, un poco de React y Angular, además de desarrollo web en WordPress.</p>
         <a href="Currículum_Programacion_Juleny.pdf" class="cv-button" target="_blank">
             <i class="fas fa-file-download"></i> Descargar mi CV
         </a>
