@@ -202,7 +202,18 @@ color:#00e5ff;
 font-weight:bold;
 display:none;
 }
-
+.badge-proceso {
+    display: inline-block;
+    background: #ffb703; /* Color naranja/amarillo para resaltar */
+    color: #000;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 /* FOOTER */
 footer{
 background:#0a0a14;
@@ -248,23 +259,55 @@ Me apasiona transformar ideas en soluciones digitales eficientes cuidando tanto 
 </header>
 
 <section id="habilidades">
-<h2>💻 Habilidades</h2>
-<div class="habilidades">
-<div><i class="fab fa-java"></i><p>Java</p></div>
-<div><i class="fab fa-html5"></i><p>HTML</p></div>
-<div><i class="fab fa-css3-alt"></i><p>CSS</p></div>
-<div><i class="fab fa-android"></i><p>Android Studio</p></div>
-<div><i class="fab fa-figma"></i><p>Figma</p></div>
-<div><i class="fab fa-angular"></i><p>Angular</p></div>
-<div><i class="fab fa-react"></i><p>React</p></div>
-</div>
+  <h2>💻 Habilidades</h2>
+  <div class="habilidades">
+    <div><i class="fab fa-java"></i><p>Java</p></div>
+    <div><i class="fab fa-php"></i><p>PHP</p></div> <div><i class="fas fa-database"></i><p>MySQL</p></div> <div><i class="fab fa-html5"></i><p>HTML</p></div>
+    <div><i class="fab fa-css3-alt"></i><p>CSS</p></div>
+    <div><i class="fab fa-js"></i><p>JavaScript</p></div>
+    <div><i class="fab fa-angular"></i><p>Angular</p></div>
+    <div><i class="fab fa-react"></i><p>React</p></div>
+    <div><i class="fab fa-figma"></i><p>Figma</p></div>
+  </div>
 </section>
 
 <div class="separador"></div>
 
 <section>
 <h2>🚀 Mis Proyectos</h2>
+  
+<div class="proyecto" data-aos="fade-up">
+    <span class="badge-proceso"><i class="fas fa-hammer"></i> En Desarrollo</span>
+    <h3>Sistema de Gestión: Concesionario de Motos</h3>
+    <p class="ficha">PHP · MySQL · JavaScript · HTML/CSS</p>
+    
+    <div class="swiper motosSwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="images/motos1.jpg" alt="Vista principal concesionario"></div>
+            <div class="swiper-slide"><img src="images/motos2.jpg" alt="Vista de modelos"></div>
+            <div class="swiper-slide"><img src="images/motos3.jpg" alt="Panel de administración"></div>
+            <div class="swiper-slide"><img src="images/motos4.jpg" alt="Gestión de inventario"></div>
+            <div class="swiper-slide"><img src="images/motos5.jpg" alt="Base de datos phpMyAdmin"></div>
+            <div class="swiper-slide"><img src="images/motos6.jpg" alt="Detalle de producto"></div>
+            <div class="swiper-slide"><img src="images/motos7.jpg" alt="Formulario de registro"></div>
+            <div class="swiper-slide"><img src="images/motos8.jpg" alt="Validaciones JS"></div>
+            <div class="swiper-slide"><img src="images/motos9.jpg" alt="Interfaz responsive"></div>
+            <div class="swiper-slide"><img src="images/motos10.jpg" alt="Finalización de compra"></div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
 
+    <p>
+        <strong>Estado actual:</strong> Implementando la lógica de backend y conexión a base de datos en mi formación de <strong>DAW</strong>.
+        <br><br>
+        Desarrollo de una plataforma web integral para la gestión de inventario de motocicletas. 
+        El proyecto incluye un panel de administración profesional (<strong>CRUD</strong>) para gestionar modelos y stock, apoyado en una base de datos relacional optimizada en <strong>phpMyAdmin</strong> y validaciones dinámicas con <strong>JavaScript</strong>. 
+        <br><br>
+        Este desarrollo me permite consolidar la arquitectura cliente-servidor y el manejo de datos en tiempo real mediante <strong>PHP</strong>.
+    </p>
+</div>
 <div class="proyecto">
 <h3>Aplicación de Facturación</h3>
 <p class="ficha">Android Studio · SQL Server · API .NET Core</p>
@@ -389,7 +432,7 @@ function initSwiper(selector){
 initSwiper(".facturacionSwiper");
 initSwiper(".ropisportSwiper");
 initSwiper(".listaSwiper");
-
+initSwiper(".motosSwiper");
 
 /* --- FORMULARIO CONTACTO --- */
 const form = document.getElementById("contact-form");
