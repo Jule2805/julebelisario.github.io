@@ -72,6 +72,8 @@ header img {
 }
 
 .cv-button {
+    position: relative; 
+    overflow: hidden;   
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -80,10 +82,35 @@ header img {
     color: #fff;
     font-weight: 700;
     border-radius: 50px;
-    transition: 0.4s;
+    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
     text-decoration: none;
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
+
+.cv-button:hover {
+    transform: scale(0.97); 
+    box-shadow: 0 5px 10px rgba(155, 93, 229, 0.5); 
+  
+}
+
+/* --- ESTE ES EL BRILLO ORIGINAL, INTEGRADO --- */
+.cv-button::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 20%; 
+    height: 200%;
+    background: rgba(255, 255, 255, 0.4); 
+    transform: rotate(30deg);
+    animation: brillo 4s infinite;
+}
+
+@keyframes brillo {
+    0% { left: -100%; }
+    20% { left: 150%; } 
+    100% { left: 150%; } 
+
 /* HABILIDADES DEGRADADAS EN UNA LÍNEA */
 #habilidades { padding: 40px 20px; text-align: center; }
 .habilidades {
@@ -224,7 +251,14 @@ footer {
     text-align: center;
     border-top: 1px solid rgba(255,255,255,0.1);
 }
-.social-icons { display: flex; gap: 20px; }
+.social-icons { 
+    display: flex; 
+    gap: 20px; 
+    justify-content: center; 
+    align-items: center;     
+    margin: 20px 0;         
+}
+
 .social-icons a {
     width: 50px;
     height: 50px;
@@ -233,17 +267,23 @@ footer {
     justify-content: center;
     background: rgba(255,255,255,0.05);
     border-radius: 50%;
-    transition: 0.3s;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    text-decoration: none;
 }
 
 .social-icons a:hover {
     background: var(--primary);
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.1); 
+    box-shadow: 0 10px 20px rgba(155, 93, 229, 0.3);
 }
 
+.social-icons a:active {
+    transform: translateY(0) scale(0.9); 
+    transition: 0.1s;
+}
 .social-icons a i {
-    font-size: 1.8rem;
-    color: #fff; /* Logos de redes sociales también BLANCOS */
+    font-size: 1.5rem; 
+    color: #fff; 
 }
 
 @media(max-width:768px){
