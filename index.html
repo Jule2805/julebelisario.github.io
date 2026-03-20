@@ -6,460 +6,413 @@
 <title>Portafolio - Juleny Belisario</title>
 
 <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"/>
 
 <style>
+:root {
+    --primary: #9b5de5;
+    --secondary: #00e5ff;
+    --bg-dark: #0a0a14;
+    --card-bg: rgba(26, 26, 46, 0.7);
+}
+
 *{margin:0;padding:0;box-sizing:border-box;}
 
-body{
-font-family:'Inter',sans-serif;
-background:#0f0f1a;
-color:#fff;
-line-height:1.6;
-overflow-x:hidden;
-scroll-behavior:smooth;
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-dark);
+    background-image: radial-gradient(circle at 10% 20%, rgba(155, 93, 229, 0.1) 0%, transparent 40%),
+                      radial-gradient(circle at 90% 80%, rgba(0, 229, 255, 0.1) 0%, transparent 40%);
+    color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 /* HEADER */
-header{
-padding:100px 20px;
-display:flex;
-flex-wrap:wrap;
-align-items:center;
-justify-content:center;
-gap:60px;
+header {
+    min-height: 80vh;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 30px;
 }
 
-header img{
-width:220px;
-border-radius:50%;
-border:5px solid #fff;
-box-shadow:0 0 25px rgba(155,93,229,0.6);
+header img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #fff; /* Borde blanco puro */
+    padding: 5px;
+    box-shadow: 0 0 40px rgba(155, 93, 229, 0.5);
+    transition: 0.5s ease;
 }
 
-.sobre-mi{max-width:550px;}
-
-.sobre-mi h1{
-font-size:3.2em;
-margin-bottom:15px;
-font-weight:700;
-color:#9b5de5;
+header img:hover {
+    transform: rotate(5deg) scale(1.05);
+    box-shadow: 0 0 60px rgba(0, 229, 255, 0.6);
 }
 
-.cv-button{
-display:inline-block;
-margin-top:25px;
-padding:14px 28px;
-background:#fff;
-color:#6a0dad;
-font-weight:600;
-border-radius:30px;
-transition:.3s ease;
-text-decoration:none;
+.sobre-mi { max-width: 700px; }
+
+.sobre-mi h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #fff, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
 }
 
-.cv-button:hover{
-background:#00e5ff;
-color:#fff;
-transform:translateY(-3px);
+.sobre-mi p {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 30px;
 }
 
-/* HABILIDADES */
-#habilidades{margin-top:60px;text-align:center;}
-#habilidades h2{margin-bottom:30px;font-size:2.4em;color:#9b5de5;}
-
-.habilidades{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:30px;
+.cv-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 35px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff;
+    font-weight: 700;
+    border-radius: 50px;
+    transition: 0.4s;
+    text-decoration: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-.habilidades div{
-text-align:center;
-transition:.3s ease;
+.cv-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(155, 93, 229, 0.4);
 }
 
-.habilidades i{
-font-size:2.2em;
-background:linear-gradient(135deg,#9b5de5,#00e5ff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-margin-bottom:8px;
+/* HABILIDADES CON DEGRADADO (TIPO FOTO) */
+#habilidades { 
+    padding: 40px 20px; 
+    text-align: center; 
 }
 
-.habilidades div:hover{
-transform:translateY(-8px);
+.habilidades {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow-x: auto;
+    padding: 20px;
 }
 
-/* SEPARADOR */
-.separador{
-width:80%;
-height:3px;
-background:linear-gradient(90deg,#6a0dad,#00e5ff);
-margin:60px auto;
-border-radius:5px;
+.habilidades::-webkit-scrollbar { display: none; }
+
+.habilidades div {
+    flex: 0 0 auto;
+    transition: 0.4s ease;
 }
 
-/* PROYECTOS */
-section h2{
-text-align:center;
-margin-bottom:40px;
-font-size:2.4em;
-color:#9b5de5;
+.habilidades div:hover {
+    transform: translateY(-10px) scale(1.1);
 }
 
-.proyecto{
-margin-bottom:80px;
-padding:40px;
-background:#1a1a2e;
-border-radius:20px;
-transition:0.4s ease;
+/* El truco del degradado en el icono */
+.habilidades i {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    display: block;
+    /* Degradado lineal de violeta a cian */
+    background: linear-gradient(135deg, #9b5de5, #00e5ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 5px rgba(155, 93, 229, 0.2));
 }
 
-.proyecto:hover{
-transform:translateY(-8px);
-box-shadow:0 20px 50px rgba(155,93,229,0.2);
+.habilidades p {
+    font-size: 0.9rem;
+    color: #fff;
+    font-weight: 600;
+    opacity: 0.9;
+}
+/* LINEA SEPARADORA GLITCH (Basada en imagen) */
+.separador {
+    width: 80%;
+    height: 4px;
+    background: linear-gradient(90deg, #6a0dad 0%, #00e5ff 100%); /* Magenta a Cian */
+    margin: 80px auto;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.5); /* Brillo cian */
 }
 
-.proyecto h3{
-text-align:center;
-margin-bottom:10px;
+/* PROYECTOS MODERNOS */
+section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: var(--primary); }
+
+.proyecto {
+    margin-bottom: 60px;
+    padding: 40px;
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
-.ficha{
-text-align:center;
-margin-bottom:20px;
-font-size:0.9em;
-color:#aaa;
+.proyecto h3 { font-size: 1.8rem; color: var(--secondary); margin-bottom: 5px; }
+
+.ficha {
+    display: inline-block;
+    background: rgba(0, 229, 255, 0.1);
+    color: var(--secondary);
+    padding: 4px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-bottom: 25px;
 }
 
-/* SWIPER UNIFORME */
-.swiper{
-width:100%;
-max-width:900px;
-margin:0 auto 20px auto;
+.badge-proceso {
+    background: linear-gradient(90deg, #ffb703, #fb8500);
+    color: #000;
+    padding: 6px 15px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
 }
 
-.swiper-slide{
-display:flex;
-justify-content:center;
-align-items:center;
-background:#111;
-border-radius:12px;
-overflow:hidden;
-aspect-ratio:16/9;
+/* SWIPER SHADOWS */
+.swiper {
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    margin-bottom: 30px !important;
 }
 
-.swiper-slide img,
-.swiper-slide video{
-width:100%;
-height:100%;
-object-fit:contain;
-}
-
-/* BOTONES */
-.swiper-button-next,
-.swiper-button-prev{
-color:#00e5ff;
-}
+.swiper-slide { background: #000; overflow: hidden; }
+.swiper-slide img, .swiper-slide video { object-fit: contain; }
 
 /* CONTACTO */
-#contacto{text-align:center;}
-
-form{
-max-width:550px;
-margin:auto;
-display:flex;
-flex-direction:column;
-gap:15px;
+form {
+    max-width: 600px;
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 30px;
+    margin: 0 auto;
 }
 
-input,textarea{
-padding:14px;
-border-radius:10px;
-border:none;
-font-size:1em;
+input, textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 12px;
+    color: #fff;
+    margin-bottom: 15px;
 }
 
-button{
-padding:14px;
-border:none;
-border-radius:30px;
-background:linear-gradient(135deg,#6a0dad,#00e5ff);
-color:#fff;
-font-size:1.1em;
-font-weight:bold;
-cursor:pointer;
-}
-
-.mensaje-exito{
-margin-top:15px;
-color:#00e5ff;
-font-weight:bold;
-display:none;
-}
-.badge-proceso {
-    display: inline-block;
-    background: #ffb703; /* Color naranja/amarillo para resaltar */
-    color: #000;
-    padding: 5px 12px;
+button {
+    width: 100%;
+    padding: 18px;
+    border: none;
     border-radius: 15px;
-    font-size: 0.8em;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-/* FOOTER */
-footer{
-background:#0a0a14;
-text-align:center;
-padding:25px;
-margin-top:40px;
-color:#aaa;
-border-top:2px solid #6a0dad;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff;
+    font-weight: 700;
 }
 
-.social-icons a{
-color:#fff;
-margin:0 12px;
-font-size:1.8em;
+/* FOOTER (Centrado y con logos Blancos) */
+footer {
+    padding: 50px 20px;
+    background: #05050a;
+    text-align: center; /* Centrar todo el texto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
-.social-icons a:hover{
-color:#00e5ff;
+footer p { color: #aaa; }
+
+.social-icons { display: flex; gap: 20px; }
+.social-icons a {
+    width: 50px;
+    height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    background: var(--primary);
+    transform: translateY(-5px);
+}
+
+.social-icons a i {
+    font-size: 1.8rem;
+    color: #fff; /* Logos de redes sociales también BLANCOS */
 }
 
 @media(max-width:768px){
-header{padding:60px 20px;gap:30px;}
-header img{width:160px;}
-.sobre-mi h1{font-size:2.2em;}
-.proyecto{padding:25px;}
+    .habilidades { grid-template-columns: repeat(2, 1fr); max-width: 100%; } /* 2 columnas en móvil */
+    .proyecto { padding: 25px; border-radius: 20px; }
 }
 </style>
 </head>
 
 <body>
 
-<header data-aos="fade-up">
-<img src="tu-foto.jpg" alt="Foto Juleny">
-<div class="sobre-mi">
-<h1>Juleny Belisario</h1>
-<p>
-Soy desarrolladora Frontend y diseñadora de interfaces enfocada en crear experiencias digitales modernas, funcionales y visualmente atractivas.
-Trabajo con tecnologías como HTML, CSS, Java, Android Studio, un poco de React y Angular, además de desarrollo web en WordPress.
-Me apasiona transformar ideas en soluciones digitales eficientes cuidando tanto la lógica como la experiencia del usuario.
-</p>
-<a href="Currículum_Programacion_Juleny.pdf" class="cv-button" target="_blank">📄 Descargar mi CV</a>
-</div>
+<header data-aos="zoom-in">
+    <img src="tu-foto.jpg" alt="Foto Juleny">
+    <div class="sobre-mi">
+        <h1>Juleny Belisario</h1>
+        <p>Soy desarrolladora Frontend y diseñadora de interfaces enfocada en crear experiencias digitales modernas, funcionales y visualmente atractivas. Trabajo con tecnologías como HTML, CSS, Java, Android Studio, un poco de React y Angular, además de desarrollo web en WordPress.</p>
+        <a href="Currículum_Programacion_Juleny.pdf" class="cv-button" target="_blank">
+            <i class="fas fa-file-download"></i> Descargar mi CV
+        </a>
+    </div>
 </header>
 
 <section id="habilidades">
-  <h2>💻 Habilidades</h2>
-  <div class="habilidades">
-    <div><i class="fab fa-java"></i><p>Java</p></div>
-    <div><i class="fab fa-php"></i><p>PHP</p></div> <div><i class="fas fa-database"></i><p>MySQL</p></div> <div><i class="fab fa-html5"></i><p>HTML</p></div>
-    <div><i class="fab fa-css3-alt"></i><p>CSS</p></div>
-    <div><i class="fab fa-js"></i><p>JavaScript</p></div>
-    <div><i class="fab fa-angular"></i><p>Angular</p></div>
-    <div><i class="fab fa-react"></i><p>React</p></div>
-    <div><i class="fab fa-figma"></i><p>Figma</p></div>
-  </div>
+    <h2 data-aos="fade-up">💻 Habilidades</h2>
+    <div class="habilidades" data-aos="fade-up">
+        <div><i class="fab fa-java"></i><p>Java</p></div>
+        <div><i class="fab fa-php"></i><p>PHP</p></div>
+        <div><i class="fas fa-database"></i><p>MySQL</p></div>
+        <div><i class="fab fa-html5"></i><p>HTML</p></div>
+        <div><i class="fab fa-css3-alt"></i><p>CSS</p></div>
+        <div><i class="fab fa-js"></i><p>JavaScript</p></div>
+        <div><i class="fab fa-angular"></i><p>Angular</p></div>
+        <div><i class="fab fa-react"></i><p>React</p></div>
+        <div><i class="fab fa-figma"></i><p>Figma</p></div>
+    </div>
 </section>
 
 <div class="separador"></div>
 
-<section>
-<h2>🚀 Mis Proyectos</h2>
-  
-<div class="proyecto" data-aos="fade-up">
-    <span class="badge-proceso"><i class="fas fa-hammer"></i> En Desarrollo</span>
-    <h3>Sistema de Gestión: Concesionario de Motos</h3>
-    <p class="ficha">PHP · MySQL · JavaScript · HTML/CSS</p>
-    
-    <div class="swiper motosSwiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="images/motos1.jpg" alt="Vista principal concesionario"></div>
-            <div class="swiper-slide"><img src="images/motos2.jpg" alt="Vista de modelos"></div>
-            <div class="swiper-slide"><img src="images/motos3.jpg" alt="Panel de administración"></div>
-            <div class="swiper-slide"><img src="images/motos4.jpg" alt="Gestión de inventario"></div>
-            <div class="swiper-slide"><img src="images/motos5.jpg" alt="Base de datos phpMyAdmin"></div>
-            <div class="swiper-slide"><img src="images/motos6.jpg" alt="Detalle de producto"></div>
-            <div class="swiper-slide"><img src="images/motos7.jpg" alt="Formulario de registro"></div>
-            <div class="swiper-slide"><img src="images/motos8.jpg" alt="Validaciones JS"></div>
-            <div class="swiper-slide"><img src="images/motos9.jpg" alt="Interfaz responsive"></div>
-            <div class="swiper-slide"><img src="images/motos10.jpg" alt="Finalización de compra"></div>
+<section id="proyectos">
+    <h2 data-aos="fade-up">🚀 Mis Proyectos</h2>
+
+    <div class="proyecto" data-aos="fade-right">
+        <span class="badge-proceso"><i class="fas fa-hammer"></i> En Desarrollo</span>
+        <h3>Sistema de Gestión: Concesionario de Motos</h3>
+        <p class="ficha">PHP · MySQL · JavaScript · HTML/CSS</p>
+        <div class="swiper motosSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/motos1.jpg"></div>
+                <div class="swiper-slide"><img src="images/motos2.jpg"></div>
+                <div class="swiper-slide"><img src="images/motos3.jpg"></div>
+                <div class="swiper-slide"><img src="images/motos4.jpg"></div>
+                <div class="swiper-slide"><img src="images/motos5.jpg"></div>
+                <div class="swiper-slide"><img src="images/motos6.jpg"></div>
+                <div class="swiper-slide"><img src="images/motos7.jpg"></div>
+                <div class="swiper-slide"><img src="images/motos8.jpg"></div>
+                <div class="swiper-slide"><img src="images/motos9.jpg"></div>
+                <div class="swiper-slide"><img src="images/motos10.jpg"></div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
         </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
+        <p><strong>Estado actual:</strong> Implementando la lógica de backend en mi formación de DAW. Desarrollo de plataforma integral para gestión de inventario de motocicletas con panel CRUD profesional.</p>
+    </div> 
+
+<div class="proyecto" data-aos="fade-left">
+        <h3>RopiSport</h3>
+        <p class="ficha">WordPress · CSS personalizado · IONOS</p>
+        <div class="swiper ropisportSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/ropisport1.jpg"></div>
+                <div class="swiper-slide"><img src="images/ropisport2.jpg"></div>
+                <div class="swiper-slide"><img src="images/ropisport3.jpg"></div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <p>Sitio web desarrollado para una marca deportiva, enfocado en experiencia visual moderna y diseño responsive.</p>
+        <a href="https://ropisport.com" target="_blank" class="cv-button" style="margin-top:20px">🌐 Ver sitio</a>
     </div>
 
-    <p>
-        <strong>Estado actual:</strong> Implementando la lógica de backend y conexión a base de datos en mi formación de <strong>DAW</strong>.
-        <br><br>
-        Desarrollo de una plataforma web integral para la gestión de inventario de motocicletas. 
-        El proyecto incluye un panel de administración profesional (<strong>CRUD</strong>) para gestionar modelos y stock, apoyado en una base de datos relacional optimizada en <strong>phpMyAdmin</strong> y validaciones dinámicas con <strong>JavaScript</strong>. 
-        <br><br>
-        Este desarrollo me permite consolidar la arquitectura cliente-servidor y el manejo de datos en tiempo real mediante <strong>PHP</strong>.
-    </p>
-</div>
-<div class="proyecto">
-<h3>Aplicación de Facturación</h3>
-<p class="ficha">Android Studio · SQL Server · API .NET Core</p>
-<div class="swiper facturacionSwiper">
-<div class="swiper-wrapper">
-<div class="swiper-slide"><img src="images/facturacion1.jpg"></div>
-<div class="swiper-slide">
-<video controls preload="metadata">
-<source src="images/facturacion-demo.mp4" type="video/mp4">
-</video>
-</div>
-</div>
-<div class="swiper-button-next"></div>
-<div class="swiper-button-prev"></div>
-<div class="swiper-pagination"></div>
-</div>
-  <p>Aplicación móvil desarrollada para la gestión de facturación con conexión a base de datos y API personalizada.</p>
-</div>
+    <div class="proyecto" data-aos="fade-left">
+        <h3>Aplicación de Facturación</h3>
+        <p class="ficha">Android Studio · SQL Server · API .NET Core</p>
+        <div class="swiper facturacionSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/facturacion1.jpg"></div>
+                <div class="swiper-slide">
+                    <video controls preload="metadata"><source src="images/facturacion-demo.mp4" type="video/mp4"></video>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <p>Aplicación móvil desarrollada para la gestión de facturación con conexión a base de datos SQL y API personalizada en .NET Core.</p>
+    </div>
 
-<div class="proyecto">
-<h3>RopiSport</h3>
-<p class="ficha">WordPress · CSS personalizado · Hosting IONOS</p>
-<div class="swiper ropisportSwiper">
-<div class="swiper-wrapper">
-<div class="swiper-slide"><img src="images/ropisport1.jpg"></div>
-<div class="swiper-slide"><img src="images/ropisport2.jpg"></div>
-<div class="swiper-slide"><img src="images/ropisport3.jpg"></div>
-<div class="swiper-slide">
-  <iframe src="https://drive.google.com/file/d/1TxDlgft9FQin6TrWkVXJvDu65-VNNs8C/preview" 
-          width="100%" height="100%" style="border:none;" allow="autoplay"></iframe>
-</div>
-</div>
-<div class="swiper-button-next"></div>
-<div class="swiper-button-prev"></div>
-<div class="swiper-pagination"></div>
-</div>
-<p>
-Sitio web desarrollado para una marca deportiva, enfocado en experiencia visual moderna, diseño responsive y optimización de rendimiento.
-<br><br>
-<a href="https://ropisport.com" target="_blank" class="cv-button">🌐 Ver sitio</a>
-</p>
-</div>
+    <div class="proyecto" data-aos="fade-right">
+        <h3>Lista de la Compra</h3>
+        <p class="ficha">React Native · Expo · Mobile Development</p>
+        <div class="swiper listaSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/lista1.jpg" alt="Pantalla principal Lista"></div>
+                <div class="swiper-slide"><img src="images/lista2.jpg" alt="Añadiendo producto"></div>
+                <div class="swiper-slide">
+                    <video controls preload="metadata"><source src="images/lista-demo.mp4" type="video/mp4"></video>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <p>Aplicación móvil híbrida desarrollada con <strong>React Native</strong> para la gestión inteligente y personalizada de listas de compra domésticas.</p>
+    </div>
 
-<div class="proyecto">
-<h3>Lista de la Compra</h3>
-<p class="ficha">React Native · Expo</p>
-<div class="swiper listaSwiper">
-<div class="swiper-wrapper">
-<div class="swiper-slide"><img src="images/lista1.jpg"></div>
-<div class="swiper-slide"><img src="images/lista2.jpg"></div>
-<div class="swiper-slide">
-<video controls preload="metadata">
-<source src="images/lista-demo.mp4" type="video/mp4">
-</video>
-</div>
-</div>
-<div class="swiper-button-next"></div>
-<div class="swiper-button-prev"></div>
-<div class="swiper-pagination"></div>
-</div>
-  <p>Aplicación móvil desarrollada para la gestión personalizada de listas de compra.</p>
-</div>
-
-</section>
-<section id="contacto">
-  <h2>📬 Contáctame</h2>
-
-  <form id="contact-form" action="https://formspree.io/f/mandvgjw" method="POST">
     
-    <input type="text" name="nombre" placeholder="Tu nombre" required>
-
-    <input type="email" name="email" placeholder="Tu correo" required>
-
-    <textarea name="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
-
-    <button type="submit">Enviar Mensaje</button>
-
-    <div class="mensaje-exito">
-      ✅ ¡Gracias por tu mensaje!
-    </div>
-
-  </form>
 </section>
+
+<div class="separador"></div>
+
 <footer>
-  © 2026 Juleny Belisario
-  <div class="social-icons">
-  <a href="http://www.linkedin.com/in/jule-belisario-439b4336a" target="_blank">
-    <i class="fab fa-linkedin"></i>
-  </a>
-  <a href="https://github.com/Jule2805" target="_blank">
-    <i class="fab fa-github"></i>
-  </a>
-  <a href="https://wa.me/34611516149" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-</div>
+    <div class="social-icons" data-aos="fade-up">
+        <a href="http://www.linkedin.com/in/jule-belisario-439b4336a" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/Jule2805" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://wa.me/34611516149" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>© 2026 Juleny Belisario | Diseñado con pasión</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
 <script>
-AOS.init({duration:1000,once:true});
+AOS.init({duration:1000, once:true});
 
-/* --- SWIPERS --- */
+// Swipers unificados
 function initSwiper(selector){
-  return new Swiper(selector,{
-    slidesPerView:1,
-    spaceBetween:20,
-    loop:true,
-    pagination:{
-      el:selector+" .swiper-pagination",
-      clickable:true
-    },
-    navigation:{
-      nextEl:selector+" .swiper-button-next",
-      prevEl:selector+" .swiper-button-prev"
-    }
-  });
+    return new Swiper(selector,{
+        slidesPerView:1, spaceBetween:20, loop:true, grabCursor: true,
+        pagination:{ el:selector+" .swiper-pagination", clickable:true },
+        navigation:{ nextEl:selector+" .swiper-button-next", prevEl:selector+" .swiper-button-prev" }
+    });
 }
 
 initSwiper(".facturacionSwiper");
 initSwiper(".ropisportSwiper");
-initSwiper(".listaSwiper");
 initSwiper(".motosSwiper");
-
-/* --- FORMULARIO CONTACTO --- */
-const form = document.getElementById("contact-form");
-
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const data = new FormData(form);
-
-  try {
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: data,
-      headers: { 'Accept':'application/json' }
-    });
-
-    if (response.ok) {
-      form.reset();
-      form.querySelector(".mensaje-exito").style.display = "block";
-    } else {
-      alert("Hubo un error al enviar el mensaje.");
-    }
-
-  } catch (error) {
-    alert("Error de conexión.");
-  }
-});
+initSwiper(".listaSwiper"); // Inicializado el Swiper de la lista
 </script>
 </body>
 </html>
