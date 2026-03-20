@@ -52,7 +52,21 @@ header img {
     padding: 5px;
     box-shadow: 0 0 40px rgba(155, 93, 229, 0.5);
 }
+.foto-perfil {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    padding: 5px;
+    animation: flotarFoto 4s ease-in-out infinite;
+    box-shadow: 0 0 30px rgba(155, 93, 229, 0.3);
+}
 
+@keyframes flotarFoto {
+    0%, 100% { transform: translateY(0) scale(1); box-shadow: 0 0 20px rgba(155, 93, 229, 0.3); }
+    50% { transform: translateY(-15px) scale(1.05); box-shadow: 0 0 50px var(--primary); }
+}
 
 .sobre-mi { max-width: 700px; }
 
@@ -300,7 +314,7 @@ footer {
 <body>
 
 <header data-aos="zoom-in">
-    <img src="tu-foto.jpg" alt="Foto Juleny">
+    <img src="tu-foto.jpg" class="foto-perfil" alt="Foto Juleny">
     <div class="sobre-mi">
         <h1>Juleny Belisario</h1>
         <p>Soy desarrolladora Frontend y diseñadora de interfaces enfocada en crear experiencias digitales modernas, funcionales y visualmente atractivas. Trabajo con tecnologías como HTML, CSS, Java, Android Studio, un poco de React y Angular, además de desarrollo web en WordPress.</p>
