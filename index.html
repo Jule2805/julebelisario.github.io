@@ -105,7 +105,7 @@ header img {
     border-radius: 5px;
 }
 
-/* --- FIX DE IMÁGENES Y SWIPER --- */
+/* --- FIX DE IMÁGENES GRANDES Y ETIQUETA --- */
 .proyecto {
     margin-bottom: 60px;
     padding: 40px;
@@ -113,7 +113,7 @@ header img {
     backdrop-filter: blur(15px);
     border-radius: 30px;
     border: 1px solid rgba(255,255,255,0.1);
-    max-width: 900px;
+    max-width: 1000px; /* Más ancho para imágenes grandes */
     margin-left: auto;
     margin-right: auto;
 }
@@ -122,28 +122,43 @@ header img {
     width: 100%;
     border-radius: 15px;
     margin-bottom: 25px;
+    height: auto; /* Altura automática */
+    min-height: 400px; /* Altura mínima joe para que se vean grandes */
+    display: flex;
+    align-items: center;
 }
 
-/* Esto asegura que todas las imágenes midan lo mismo sin deformarse */
 .swiper-slide {
-    aspect-ratio: 16 / 9; /* Relación de aspecto estándar */
     display: flex;
     justify-content: center;
     align-items: center;
     background: #000;
+    height: auto;
 }
 
+/* object-fit: contain asegura que se vean COMPLETAS sin cortes */
 .swiper-slide img, .swiper-slide video, .swiper-slide iframe {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Las imágenes llenan el espacio sin estirarse */
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 600px; /* Altura máxima para PC */
+    object-fit: contain; 
 }
 
-/* Ajuste para videos verticales (Android/Lista Compra) */
-.mobile-slide {
-    aspect-ratio: 9 / 16;
-    max-width: 350px;
-    margin: 0 auto;
+/* Etiqueta En Desarrollo (imagen_2.png) */
+.badge-proceso {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #ffb703, #fb8500); /* Naranja exacto */
+    color: #000;
+    padding: 8px 18px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .proyecto h3 { font-size: 1.8rem; color: var(--secondary); margin-bottom: 10px; text-align: center;}
@@ -163,6 +178,8 @@ footer {
 @media(max-width:768px){
     .proyecto { padding: 20px; }
     .habilidades { gap: 15px; }
+    .swiper { min-height: 250px; } /* Ajuste para móvil */
+    .swiper-slide img, .swiper-slide video, .swiper-slide iframe { max-height: 400px; }
 }
 </style>
 </head>
@@ -173,7 +190,7 @@ footer {
     <img src="tu-foto.jpg" alt="Foto Juleny">
     <div class="sobre-mi">
         <h1>Juleny Belisario</h1>
-        <p>Soy desarrolladora Frontend y diseñadora de interfaces enfocada en crear experiencias digitales modernas, funcionales y visualmente atractivas. Trabajo con tecnologías como HTML, CSS, Java, Android Studio, un poco de React y Angular, además de desarrollo web en WordPress.</p>
+        <p>Soy desarrolladora Frontend y diseñadora de interfaces enfocada en crear experiencias digitales modernas, funcionales y visualmente atractivas. Trabajo con tecnologías como HTML, CSS, Java, Android Studio, un poco de React y Angular, además de desarrollo web en WordPress</p>
         <a href="Currículum_Programacion_Juleny.pdf" class="cv-button" target="_blank">
             <i class="fas fa-file-download"></i> Descargar mi CV
         </a>
@@ -293,9 +310,10 @@ footer {
 <script>
 AOS.init({duration:1000, once:true});
 
+// Swipers unificados, autoHeight activado joe
 function initSwiper(selector){
     return new Swiper(selector,{
-        slidesPerView:1, spaceBetween:10, loop:true, grabCursor: true,
+        slidesPerView:1, spaceBetween:20, loop:true, grabCursor: true, autoHeight: true, 
         pagination:{ el:selector+" .swiper-pagination", clickable:true },
         navigation:{ nextEl:selector+" .swiper-button-next", prevEl:selector+" .swiper-button-prev" }
     });
